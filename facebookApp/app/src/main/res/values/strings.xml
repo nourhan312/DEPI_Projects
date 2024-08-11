@@ -1,0 +1,4 @@
+<resources>
+    <string name="app_name">Facebook</string>
+    <string name="meta_logo">Meta Logo</string> <!-- Add this line -->
+</resources>
