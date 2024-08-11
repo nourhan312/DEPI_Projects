@@ -77,7 +77,7 @@
             android:text="Forgot Password ?"
             android:textColor="@color/white" />
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/createNewAccountButton"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
