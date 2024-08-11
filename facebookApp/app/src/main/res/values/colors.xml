@@ -19,4 +19,10 @@
     <color name="background_dark">#112130</color>
     <color name="magenta">#FFFF00FF</color>
     <color name="transparent">#00000000</color>
+    <color name="dark_primary">#212121</color>
+    <color name="dark_primary_dark">#000000</color>
+    <color name="dark_accent">#FFC107</color>
+    <color name="dark_background">#303030</color>
+    <color name="blue_gray">#1a2b33</color>
+
 </resources>

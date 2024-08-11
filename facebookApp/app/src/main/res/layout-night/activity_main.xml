@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color"
+    android:background="@color/background_dark"
     tools:context=".MainActivity">
 
     <View
@@ -41,7 +41,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_border"
-            android:hint="@string/mobile_number_or_email"
+            android:hint="Mobile number or Email"
             android:inputType="textEmailAddress"
             android:padding="16dp"
             android:textColor="@color/text_color" />
@@ -52,7 +52,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
             android:background="@drawable/edittext_border"
-            android:hint="@string/password"
+            android:hint="Password"
 
             android:inputType="textPassword"
             android:padding="16dp"
@@ -65,7 +65,7 @@
             android:layout_marginBottom="16dp"
             android:backgroundTint="@color/button_color"
             android:padding="1dp"
-            android:text="@string/log_in"
+            android:text="Log In"
             android:textColor="@color/button_text_color" />
 
         <TextView
@@ -73,9 +73,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginBottom="16dp"
-            android:textSize="16sp"
-            android:text="@string/forgot_password"
-            android:textColor="@color/text_color" />
+            android:textSize="16dp"
+            android:text="Forgot Password ?"
+            android:textColor="@color/white" />
 
         <Button
             android:id="@+id/createNewAccountButton"
@@ -83,10 +83,10 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="100dp"
             android:padding="10dp"
-            android:text="@string/create_new_account"
+            android:text="Create New Account"
             android:textColor="@color/button_color"
-             android:background="@drawable/round_btn"
-            />
+            android:background="@drawable/round_btn"
+           />
 
         <ImageView
             android:id="@+id/main_iv_meta_logo"
@@ -94,7 +94,7 @@
             android:layout_height="50dp"
             android:layout_margin="20dp"
             android:contentDescription="@string/meta_logo"
-            app:srcCompat="@drawable/meta_light_logo"
+            app:srcCompat="@drawable/meta_night_logo"
             />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
