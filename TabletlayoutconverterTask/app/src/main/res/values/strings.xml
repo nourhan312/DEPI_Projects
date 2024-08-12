@@ -9,4 +9,10 @@
     <string name="g">G</string>
     <string name="i">I</string>
     <string name="h">H</string>
+    <string name="enter_your_number">Enter Your Number</string>
+    <string name="enter_number">Farenheit to Celcius Converter</string>
+    <string name="calculate">Calculate</string>
+    <string name="Empty_field">Please enter a number </string>
+    <string name="converted_temperature">Converted Temperature:</string>
+    <string name="welcome_to_temperature_converter">Welcome to Temperature Converter!</string>
 </resources>
