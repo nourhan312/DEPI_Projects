@@ -5,29 +5,166 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_weight="1"
     tools:context=".MainActivity">
 
 
     <TableLayout
         android:layout_width="409dp"
-        android:layout_height="729dp"
+        android:layout_height="match_parent"
+        android:stretchColumns=" "
         tools:layout_editor_absoluteX="1dp"
-        tools:layout_editor_absoluteY="1dp">
+        tools:layout_editor_absoluteY="1dp"
+        tools:ignore="MissingConstraints">
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/a"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#BA2FA3"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/a"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/e"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#2196F3"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/b"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/c"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#673AB7"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/c"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/d"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#8BC34A"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/d"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+
+            <TextView
+                android:id="@+id/ee"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="3"
+                android:background="#FF5722"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/e"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/ff"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#3F51B5"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/f"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/i"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="1"
+                android:background="#FF5252"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/g"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+
+            <TextView
+                android:id="@+id/h"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_span="3"
+                android:layout_weight="1"
+                android:background="#131212"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/h"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </TableRow>
+
+        <TableRow
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/ii"
+                android:layout_width="66dp"
+                android:layout_height="match_parent"
+                android:layout_margin="4dp"
+                android:layout_weight="3"
+                android:background="#222D6C"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="@string/i"
+                android:textColor="@color/white"
+                android:textSize="50sp" />
+        </TableRow>
+
     </TableLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
