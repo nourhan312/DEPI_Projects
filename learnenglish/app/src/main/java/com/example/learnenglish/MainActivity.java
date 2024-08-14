@@ -1,9 +1,13 @@
 package com.example.learnenglish;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Looper;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -20,5 +24,25 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        CardView cardView = findViewById(R.id.cardColors);
+        CardView cardView2 = findViewById(R.id.cardFamily);
+//        CardView cardView3 = findViewById(R.id.cardAnimals);
+
+        cardView.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, colors.class);
+            startActivity(intent);
+        });
+
+        cardView2.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, family.class);
+            startActivity(intent);
+        });
+
+//        cardView3.setOnClickListener(v -> {
+//            Intent intent = new Intent(MainActivity.this, animals.class);
+//            startActivity(intent);
+//        });
     }
-}
+
+
+    }

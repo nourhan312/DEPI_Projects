@@ -1,4 +1,3 @@
-
 <resources>
     <string name="app_name">Learning English</string>
     <string name="category_colors">Colors</string>
@@ -10,4 +9,14 @@
     <string name="family">Family</string>
     <string name="verbs">Verbs</string>
     <string name="sounds">Animals</string>
+    <string name="mother">Mother</string>
+    <string name="father">Father</string>
+    <string name="grand_mother">Grand mother</string>
+    <string name="grand_father">Grand Father</string>
+    <string name="dog">Dog</string>
+    <string name="cat">Cat</string>
+    <string name="elephant">Elephant</string>">
+    <string name="lion">Lion</string>">
+
+
 </resources>
