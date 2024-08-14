@@ -1,0 +1,13 @@
+
+<resources>
+    <string name="app_name">Learning English</string>
+    <string name="category_colors">Colors</string>
+    <string name="category_family">Family</string>
+    <string name="category_verbs">Verbs</string>
+    <string name="category_sounds">Sounds</string>
+    <string name="learn_english_for_kids">Learn English for Kids</string>
+    <string name="colors">Colors</string>
+    <string name="family">Family</string>
+    <string name="verbs">Verbs</string>
+    <string name="sounds">Animals</string>
+</resources>
