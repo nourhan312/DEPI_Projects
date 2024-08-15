@@ -13,7 +13,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
-
+  CardView cardView , cardView2 , cardView3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +24,9 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        CardView cardView = findViewById(R.id.cardColors);
-        CardView cardView2 = findViewById(R.id.cardFamily);
-//        CardView cardView3 = findViewById(R.id.cardAnimals);
+         cardView = findViewById(R.id.cardColors);
+         cardView2 = findViewById(R.id.cardFamily);
+         cardView3 = findViewById(R.id.cardAnimals);
 
         cardView.setOnClickListener(v -> {
             Intent intent = new Intent(MainActivity.this, colors.class);
@@ -38,10 +38,10 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
 
-//        cardView3.setOnClickListener(v -> {
-//            Intent intent = new Intent(MainActivity.this, animals.class);
-//            startActivity(intent);
-//        });
+        cardView3.setOnClickListener(v -> {
+            Intent intent = new Intent(MainActivity.this, animals.class);
+            startActivity(intent);
+        });
     }
 
 
