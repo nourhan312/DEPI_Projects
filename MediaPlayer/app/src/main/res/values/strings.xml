@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Media Player</string>
+    <string name="now_playing">NOW PLAYING</string>
+    <string name="el_waqaa_el_akheera">El Waqaa El Akheera</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="by_hamza_namira"> Hamza Namira </string>
+</resources>
