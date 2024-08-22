@@ -5,31 +5,27 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:background="@color/background_color"
-    android:weightSum="10"
-    >
+    android:weightSum="10">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="120dp"
+
 
         android:orientation="horizontal">
-
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            tools:ignore="NestedWeights" />
+            android:layout_weight="0.5" />
+
 
         <ImageView
-            android:id="@+id/ai_pick_side_back_btn"
-            android:layout_width="3dp"
-            android:layout_height="35dp"
-            android:layout_marginTop="20dp"
+            android:id="@+id/ai_back_icon"
+            android:layout_width="0dp"
+            android:padding="10dp"
+            android:layout_height="match_parent"
             android:layout_weight="1"
-            android:importantForAccessibility="no"
-            android:padding="1dp"
             android:src="@drawable/back" />
 
         <View
@@ -37,7 +33,6 @@
             android:layout_height="match_parent"
             android:layout_weight="8.5" />
     </LinearLayout>
-
 
 
     <TextView
@@ -82,7 +77,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5" />
+            android:layout_weight="0.5" />
 
         <ImageView
             android:id="@+id/circle_img"
@@ -132,7 +127,7 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"></View>
+            android:layout_weight="1.5" />
 
         <ImageView
             android:id="@+id/circle_radio"
@@ -165,8 +160,8 @@
         android:text="continue"
         android:textAllCaps="false"
         android:textSize="21sp"
-        android:fontFamily="@font/poppins_medium"
-        android:textColor="#454545"
+        android:fontFamily="@font/poppins_regular"
+        android:textColor="@color/black"
         android:layout_marginLeft="110dp"
         android:background="@drawable/button_2"
         android:layout_marginRight="110dp" />
