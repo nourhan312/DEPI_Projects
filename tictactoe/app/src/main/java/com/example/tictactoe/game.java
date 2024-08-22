@@ -15,6 +15,8 @@ public class game extends AppCompatActivity {
     private TextView playerNameTextView;
     private ImageView playerSymbolView;
     private  ImageView ComputerSymbolView;
+    private  TextView computerPoints;
+    private  TextView playerPoints;
 
     private ImageView[] cells = new ImageView[9];
     private int[] board = new int[9]; // 0: empty, 1: player, 2: computer
@@ -22,6 +24,10 @@ public class game extends AppCompatActivity {
 
     private int playerSymbol;  // Store the player's symbol drawable resource
     private int computerSymbol; // Store the computer's symbol drawable resource
+
+    private int playerScore = 0;
+    private int computerScore = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,6 +55,9 @@ public class game extends AppCompatActivity {
         playerNameTextView = findViewById(R.id.playerName);
         playerSymbolView = findViewById(R.id.playerSymbol);
         ComputerSymbolView= findViewById(R.id.computerSymbol);
+        computerPoints = findViewById(R.id.computerScore);
+        playerPoints = findViewById(R.id.PlayerScore);
+
 
         // Set player's symbol based on the passed string ("X" or "O")
         if (playerSymbolString.equals("X")) {
@@ -119,12 +128,21 @@ public class game extends AppCompatActivity {
         for (int[] winCondition : winConditions) {
             int a = winCondition[0], b = winCondition[1], c = winCondition[2];
             if (board[a] == player && board[a] == board[b] && board[a] == board[c]) {
+                if (player == 1) {
+                    playerScore++;
+                    playerPoints.setText(String.valueOf(playerScore));
+                    Toast.makeText(this, "Player Wins!", Toast.LENGTH_SHORT).show();
+                } else if (player == 2) {
+                    computerScore++;
+                    computerPoints.setText(String.valueOf(computerScore));
+                    Toast.makeText(this, "Computer Wins!", Toast.LENGTH_SHORT).show();
+                }
                 return true;
             }
         }
-
         return false;
     }
+
 
     private void clearBoard() {
         for (int i = 0; i < cells.length; i++) {
