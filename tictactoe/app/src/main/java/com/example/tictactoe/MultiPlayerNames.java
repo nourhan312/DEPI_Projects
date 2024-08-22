@@ -10,14 +10,14 @@ import androidx.appcompat.widget.AppCompatButton;
 
 public class MultiPlayerNames extends AppCompatActivity {
 
-    private AppCompatButton NextButton;
+    private AppCompatButton nextButton;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_get_players_names);
-        NextButton = findViewById(R.id.player_one_btn);
+        nextButton = findViewById(R.id.player_one_btn);
 
-        NextButton.setOnClickListener(v -> {
+        nextButton.setOnClickListener(v -> {
             Intent intent = new Intent(MultiPlayerNames.this, MultiPlayerGame.class);
             startActivity(intent);
         });

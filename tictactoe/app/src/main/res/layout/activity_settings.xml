@@ -96,7 +96,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/vibration"
+            android:text="Click"
             android:layout_weight="3"
             android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
@@ -167,7 +167,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="@string/sound"
+            android:text="Music"
             android:layout_weight="3"
             android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
@@ -215,7 +215,7 @@
         android:id="@+id/rate_us_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.85"
+        android:layout_weight="0.95"
         android:weightSum="10"
         android:orientation="horizontal">
 
@@ -239,24 +239,38 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Rating"
+            android:text="Choose Lauguage"
             android:layout_weight="3"
             android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
             android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textSize="20sp" />
-
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:textOn="@string/on"
-            android:layout_weight="5.25" />
+            android:layout_weight="2.25" />
+
+        <Spinner
+            android:id="@+id/language_spinner"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="3"
+            android:layout_gravity="center"
+            android:gravity="center_vertical"
+
+            android:spinnerMode="dropdown"
+            android:backgroundTint="@color/white"
+            android:textColor="@color/white" />
+
+
+
 
 
 
 
     </LinearLayout>
+
 
     <View
         android:layout_width="match_parent"
