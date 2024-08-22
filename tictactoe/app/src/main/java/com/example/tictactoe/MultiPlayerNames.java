@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.text.NoCopySpan;
 import android.widget.ImageView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -16,6 +17,7 @@ public class MultiPlayerNames extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_offline_get_players_names);
         nextButton = findViewById(R.id.players_names_btn);
         backBtn = findViewById(R.id.choose_players_back_icon);

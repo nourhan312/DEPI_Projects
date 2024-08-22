@@ -5,6 +5,9 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import androidx.activity.EdgeToEdge;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 
@@ -32,6 +35,7 @@ public class game extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        EdgeToEdge.enable(this);
         setContentView(R.layout.activity_ai_game);
 
         // Initialize the grid cells
@@ -46,6 +50,7 @@ public class game extends AppCompatActivity {
         cells[8] = findViewById(R.id.img_9);
 
         clearButton = findViewById(R.id.clear_button);
+        backbtn = findViewById(R.id.game_back_icon);
 
         // Retrieve the data from Intent
         String playerName = getIntent().getStringExtra("PLAYER_NAME");
@@ -57,6 +62,7 @@ public class game extends AppCompatActivity {
         ComputerSymbolView= findViewById(R.id.computerSymbol);
         computerPoints = findViewById(R.id.computerScore);
         playerPoints = findViewById(R.id.PlayerScore);
+
 
 
         // Set player's symbol based on the passed string ("X" or "O")
@@ -80,6 +86,7 @@ public class game extends AppCompatActivity {
         }
 
         clearButton.setOnClickListener(v -> clearBoard());
+        backbtn.setOnClickListener(v -> BackPressed());
     }
 
     private void onCellClicked(int index) {
@@ -151,4 +158,33 @@ public class game extends AppCompatActivity {
         }
         playerTurn = true; // Reset to player's turn
     }
+
+
+
+
+    public void BackPressed() {
+        showQuitDialog();
+    }
+
+
+    private void showQuitDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.quit_dialog, null);
+        builder.setView(view);
+
+        AlertDialog dialog = builder.create();
+
+        AppCompatButton quitButton = view.findViewById(R.id.quit_btn);
+        AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
+
+        quitButton.setOnClickListener(v -> {
+            // Handle the quit action
+            finish(); // Or call any method to exit the application
+        });
+
+        continueButton.setOnClickListener(v -> dialog.dismiss());
+
+        dialog.show();
+    }
+
 }

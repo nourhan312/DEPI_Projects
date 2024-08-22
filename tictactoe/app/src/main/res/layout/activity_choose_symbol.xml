@@ -1,57 +1,52 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:weightSum="10"
-    android:background="@color/white"
-    tools:context=".ChooseSymbolActivity">
+    android:background="@color/background_color"
+    android:weightSum="10">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
+        android:layout_height="120dp"
+
 
         android:orientation="horizontal">
-
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"></View>
+            android:layout_weight="0.5" />
+
 
         <ImageView
-            android:id="@+id/pick_side_back_btn"
+            android:id="@+id/multi_back_icon"
             android:layout_width="0dp"
-            android:padding="2dp"
+            android:padding="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/back_icon"></ImageView>
+            android:src="@drawable/back" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8.5"></View>
+            android:layout_weight="8.5" />
     </LinearLayout>
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.5"></View>
 
     <TextView
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1"
-        android:text="Pick your side"
+        android:text="@string/pick_your_side"
         android:layout_gravity="center"
         android:fontFamily="@font/poppins_medium"
         android:textStyle="bold"
-        android:textColor="#454545"
-        android:textSize="20dp"
-        android:gravity="center"></TextView>
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:gravity="center" />
 
 
     <View
@@ -67,33 +62,36 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.25"></View>
+            android:layout_weight="1.25"
+            tools:ignore="NestedWeights" />
 
         <ImageView
-            android:id="@+id/pick_side_cross_img"
+            android:id="@+id/xsymbol_img"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
+            android:contentDescription="@string/x_symbol"
             android:padding="10dp"
-            android:src="@drawable/cross"></ImageView>
+            android:src="@drawable/xsymbol" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"></View>
+            android:layout_weight="0.5" />
 
         <ImageView
-            android:id="@+id/pick_side_circle_img"
+            android:id="@+id/circle_img"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
             android:alpha=".4"
-            android:src="@drawable/circle"></ImageView>
+            android:importantForAccessibility="no"
+            android:src="@drawable/o" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.25"></View>
+            android:layout_weight="1.25" />
     </LinearLayout>
 
     <View
@@ -113,42 +111,46 @@
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.25"></View>
+            android:layout_weight="1.25"
+            tools:ignore="NestedWeights" />
 
         <ImageView
-            android:id="@+id/pick_side_cross_radio"
+            android:id="@+id/x_radio"
             android:layout_width="0dp"
+            android:contentDescription="radio"
             android:padding="15dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
-            android:src="@drawable/radio_button_checked"></ImageView>
+            android:src="@drawable/radio_button_checked"
+            tools:ignore="HardcodedText" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.5"></View>
+            android:layout_weight="1.5" />
 
         <ImageView
-            android:id="@+id/pick_side_circle_radio"
+            android:id="@+id/circle_radio"
             android:layout_width="0dp"
             android:padding="15dp"
             android:layout_height="match_parent"
             android:layout_weight="3.5"
-            android:src="@drawable/radio_button_unchecked"></ImageView>
+            android:src="@drawable/radio_button_unchecked" />
+
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="1.25"></View>
+            android:layout_weight="1.25" />
     </LinearLayout>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="0.75"></View>
+        android:layout_weight="0.75" />
 
 
     <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/pick_side_continue_btn"
+        android:id="@+id/mulcontinue_btn"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.85"
@@ -162,11 +164,9 @@
         android:textColor="#454545"
         android:layout_marginLeft="110dp"
         android:background="@drawable/button_2"
-        android:layout_marginRight="110dp"></androidx.appcompat.widget.AppCompatButton>
+        android:layout_marginRight="110dp" />
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1.65"></View>
+
+
 
 </LinearLayout>

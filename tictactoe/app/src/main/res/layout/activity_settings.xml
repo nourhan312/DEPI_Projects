@@ -110,7 +110,7 @@
             android:layout_weight="3.25" />
 
         <Switch
-            android:id="@+id/vibration_switch"
+            android:id="@+id/click_switch"
             android:layout_width="0dp"
             android:height="100dp"
             android:layout_weight="1.5"
@@ -181,7 +181,7 @@
             android:layout_weight="3.25" />
 
         <Switch
-            android:id="@+id/sound_switch"
+            android:id="@+id/music_switch"
             android:layout_width="0dp"
             android:layout_weight="1.5"
             android:height="100dp"
