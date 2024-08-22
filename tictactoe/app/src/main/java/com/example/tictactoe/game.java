@@ -138,17 +138,32 @@ public class game extends AppCompatActivity {
                 if (player == 1) {
                     playerScore++;
                     playerPoints.setText(String.valueOf(playerScore));
-                    Toast.makeText(this, "Player Wins!", Toast.LENGTH_SHORT).show();
+                    showWinDialog(playerNameTextView.getText().toString());
                 } else if (player == 2) {
                     computerScore++;
                     computerPoints.setText(String.valueOf(computerScore));
-                    Toast.makeText(this, "Computer Wins!", Toast.LENGTH_SHORT).show();
+                    showWinDialog("Computer");
                 }
                 return true;
             }
         }
+
+        // Check for a draw
+        boolean draw = true;
+        for (int value : board) {
+            if (value == 0) {
+                draw = false;
+                break;
+            }
+        }
+        if (draw) {
+            showDrawDialog();
+            return true;
+        }
+
         return false;
     }
+
 
 
     private void clearBoard() {
@@ -186,5 +201,56 @@ public class game extends AppCompatActivity {
 
         dialog.show();
     }
+    private void showWinDialog(String winner) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.robot_win_dialog, null);
+        builder.setView(view);
+
+        AlertDialog dialog = builder.create();
+
+        TextView winMessage = view.findViewById(R.id.win_massage);
+        AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
+        AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
+
+        winMessage.setText(   "Congratulations "+ winner + " Wins!");
+
+        continueButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            clearBoard(); // Clear the board when continuing
+        });
+
+        quitButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish(); // Quit the game
+        });
+
+        dialog.show();
+    }
+
+
+    private void showDrawDialog() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        View view = getLayoutInflater().inflate(R.layout.draw_dialog, null);
+        builder.setView(view);
+
+        AlertDialog dialog = builder.create();
+
+        AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
+        AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
+
+        continueButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            clearBoard(); // Clear the board when continuing
+        });
+
+        quitButton.setOnClickListener(v -> {
+            dialog.dismiss();
+            finish(); // Quit the game
+        });
+
+        dialog.show();
+    }
+
+
 
 }
