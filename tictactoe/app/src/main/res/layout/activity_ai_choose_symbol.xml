@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/background_color"
+    android:weightSum="10"
+    >
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:id="@+id/ai_pick_side_back_btn"
+            android:layout_width="3dp"
+            android:layout_height="35dp"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:importantForAccessibility="no"
+            android:padding="1dp"
+            android:src="@drawable/back" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8.5" />
+    </LinearLayout>
+
+
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:text="@string/pick_your_side"
+        android:layout_gravity="center"
+        android:fontFamily="@font/poppins_medium"
+        android:textStyle="bold"
+        android:layout_marginTop="25dp"
+        android:textColor="@color/white"
+        android:textSize="28sp"
+        android:gravity="center" />
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75"></View>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:id="@+id/xsymbol_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:contentDescription="@string/x_symbol"
+            android:padding="10dp"
+            android:src="@drawable/xsymbol" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5" />
+
+        <ImageView
+            android:id="@+id/circle_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:alpha=".4"
+            android:importantForAccessibility="no"
+            android:src="@drawable/o" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.5"></View>
+
+
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:id="@+id/x_radio"
+            android:layout_width="0dp"
+            android:contentDescription="radio"
+            android:padding="15dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:src="@drawable/radio_button_checked"
+            tools:ignore="HardcodedText" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.5"></View>
+
+        <ImageView
+            android:id="@+id/circle_radio"
+            android:layout_width="0dp"
+            android:padding="15dp"
+            android:layout_height="match_parent"
+            android:layout_weight="3.5"
+            android:src="@drawable/radio_button_unchecked" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.75" />
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/ai_pick_side_continue_btn"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="0.85"
+        android:layout_gravity="center"
+        android:padding="2dp"
+        android:gravity="center"
+        android:text="continue"
+        android:textAllCaps="false"
+        android:textSize="21sp"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="#454545"
+        android:layout_marginLeft="110dp"
+        android:background="@drawable/button_2"
+        android:layout_marginRight="110dp" />
+
+
+</LinearLayout>

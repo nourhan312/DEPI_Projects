@@ -1,50 +1,101 @@
-<RelativeLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/background_color">
-
-    <!-- Title -->
-    <TextView
-        android:id="@+id/titleText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Tic Tac Toe"
-        android:textSize="24sp"
-        android:textColor="@color/text_color"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
-
-    <!-- Game Grid -->
-    <GridLayout
-        android:id="@+id/gridLayout"
+    android:background="@color/background_color"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_centerInParent="true"
-        android:layout_margin="16dp"
-        android:rowCount="3"
-        android:columnCount="3"
-        android:layout_weight="1"
-        android:background="@color/line_color"
-        android:padding="4dp">
+        android:layout_height="80dp"
 
-        <!-- Grid Cells -->
-        <Button
-            android:id="@+id/button0"
-            style="@style/GridButtonStyle"/>
-        <Button
-            android:id="@+id/button1"
-            style="@style/GridButtonStyle"/>
-        <!-- Repeat for all 9 buttons -->
-    </GridLayout>
 
-    <!-- Reset Button -->
-    <Button
-        android:id="@+id/resetButton"
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="0.5" />
+
+        <ImageView
+            android:id="@+id/back_icon"
+            android:layout_width="0dp"
+            android:padding="10dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:src="@drawable/back" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="8.5" />
+    </LinearLayout>
+    <TextView
+        android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reset"
-        android:layout_below="@id/gridLayout"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="16dp"/>
-</RelativeLayout>
+        android:layout_marginTop="100dp"
+        android:fontFamily="@font/poppins"
+        android:text="@string/tic_tac_toe"
+        android:layout_gravity="center"
+        android:textColor="#FFFFFF"
+
+        android:textSize="40sp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="150dp"
+        android:layout_marginTop="80dp"
+        android:background="@color/background_color"
+
+        android:orientation="horizontal">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25"
+            tools:ignore="NestedWeights" />
+
+        <ImageView
+            android:id="@+id/xsymbol_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:contentDescription="@string/x_symbol"
+            android:padding="10dp"
+            android:src="@drawable/xsymbol" />
+
+
+        <ImageView
+            android:id="@+id/circle_img"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="2.5"
+            android:alpha=".4"
+            android:importantForAccessibility="no"
+            android:src="@drawable/o" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1.25" />
+    </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/button2"
+
+        android:layout_gravity="center"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        android:background="@drawable/app_main_theme_background"
+        android:fontFamily="@font/poppins_medium"
+        android:text="@string/start_game"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="18sp" />
+
+
+</LinearLayout>
