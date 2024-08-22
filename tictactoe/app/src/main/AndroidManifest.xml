@@ -37,6 +37,8 @@
             />
         <activity android:name=".setting"
             android:exported="true"/>
+        <activity android:name=".choosePlayerName"
+            android:exported="true"/>
     </application>
 
 </manifest>

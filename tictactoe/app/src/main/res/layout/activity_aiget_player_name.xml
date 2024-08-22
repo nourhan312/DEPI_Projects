@@ -6,33 +6,35 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:weightSum="10"
-    android:background="@drawable/background_img"
-    tools:context=".AIGetPlayerNameActivity">
+    android:background="@color/background_color">
+
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1"
-        android:orientation="horizontal">
+        android:layout_height="120dp"
 
+
+        android:orientation="horizontal">
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"></View>
+            android:layout_weight="0.5" />
+
 
         <ImageView
-            android:id="@+id/ai_player_names_back_btn"
+            android:id="@+id/choose_player_back_icon"
             android:layout_width="0dp"
-            android:padding="2dp"
+
+            android:padding="10dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/back_icon"></ImageView>
+            android:src="@drawable/back" />
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="8.5"></View>
+            android:layout_weight="8.5" />
     </LinearLayout>
 
     <View
@@ -56,7 +58,7 @@
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="2"></View>
+            android:layout_weight="2" />
 
         <TextView
             android:layout_width="match_parent"
@@ -69,14 +71,14 @@
             android:textAllCaps="false"
             android:fontFamily="@font/poppins_regular"
             android:textStyle="bold"
-            android:textColor="#5C5C5C"
+            android:textColor="@color/white"
 
-            android:text="Player Name "></TextView>
+            android:text="Player Name " />
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"></View>
+            android:layout_weight="0.5" />
 
         <EditText
             android:id="@+id/ai_player_name_edttxt"
@@ -86,13 +88,13 @@
             android:maxLines="1"
             android:maxLength="10"
             android:backgroundTint="#6E6E6E"
-            android:hint="Nick Name"
+            android:hint="Enter Your Nick Name"
             android:singleLine="true"
             android:textColor="#5C5C5C"
             android:textColorHint="#6E6E6E"
             android:textSize="18dp"
             android:layout_marginRight="40dp"
-            android:layout_weight="1.5"></EditText>
+            android:layout_weight="1.5" />
 
 
         <View

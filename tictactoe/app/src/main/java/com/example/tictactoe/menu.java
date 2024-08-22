@@ -31,7 +31,7 @@ public class menu extends AppCompatActivity {
             startActivity(intent);
         });
         singleplayercard.setOnClickListener(v -> {
-            Intent intent = new Intent(menu.this, singlePlayer.class);
+            Intent intent = new Intent(menu.this, choosePlayerName.class);
             startActivity(intent);
         });
         settingsCard.setOnClickListener(v -> {
