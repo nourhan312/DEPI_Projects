@@ -38,6 +38,11 @@ public class menu extends AppCompatActivity {
             Intent intent = new Intent(menu.this, setting.class);
             startActivity(intent);
         });
+        multiplayerCard.setOnClickListener(v -> {
+
+            Intent intent = new Intent(menu.this, MultiPlayerNames.class);
+            startActivity(intent);
+        });
 
 
 

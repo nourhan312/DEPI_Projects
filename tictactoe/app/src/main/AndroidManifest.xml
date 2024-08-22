@@ -39,6 +39,11 @@
             android:exported="true"/>
         <activity android:name=".choosePlayerName"
             android:exported="true"/>
+        <activity android:name=".MultiPlayerGame"
+            android:exported="true"/>
+
+        <activity android:name=".MultiPlayerNames"
+            android:exported="true"/>
     </application>
 
 </manifest>
