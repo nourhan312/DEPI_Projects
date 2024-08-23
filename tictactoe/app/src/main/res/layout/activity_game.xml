@@ -46,7 +46,7 @@
         android:padding="7dp">
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/comuterCard"
+            android:id="@+id/playerOneCard"
             android:layout_width="0dp"
             android:layout_height="250dp"
 
@@ -106,7 +106,6 @@
                     <ImageView
                         android:id="@+id/FplayerSymbol"
                         android:layout_weight="0.5"
-
                         android:layout_height="80dp"
 
                         android:src="@drawable/xsymbol"
@@ -119,7 +118,7 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.cardview.widget.CardView
-            android:id="@+id/playerCard"
+            android:id="@+id/playerTwoCard"
             android:layout_width="0dp"
             android:layout_height="250dp"
 

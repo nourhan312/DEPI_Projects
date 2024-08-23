@@ -1,5 +1,6 @@
 package com.example.tictactoe;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -193,6 +194,8 @@ public class game extends AppCompatActivity {
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
 
         quitButton.setOnClickListener(v -> {
+            Intent intent = new Intent(game.this, menu.class);
+            startActivity(intent);
             // Handle the quit action
             finish(); // Or call any method to exit the application
         });
@@ -208,11 +211,11 @@ public class game extends AppCompatActivity {
 
         AlertDialog dialog = builder.create();
 
-        TextView winMessage = view.findViewById(R.id.win_massage);
+        TextView winMessage = view.findViewById(R.id.win_message_details);
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
-        winMessage.setText(   "Congratulations "+ winner + " Wins!");
+        winMessage.setText(    winner + " Wins!");
 
         continueButton.setOnClickListener(v -> {
             dialog.dismiss();
@@ -220,6 +223,8 @@ public class game extends AppCompatActivity {
         });
 
         quitButton.setOnClickListener(v -> {
+            Intent intent = new Intent(game.this, menu.class);
+            startActivity(intent);
             dialog.dismiss();
             finish(); // Quit the game
         });
@@ -244,6 +249,8 @@ public class game extends AppCompatActivity {
         });
 
         quitButton.setOnClickListener(v -> {
+            Intent intent = new Intent(game.this, menu.class);
+            startActivity(intent);
             dialog.dismiss();
             finish(); // Quit the game
         });
