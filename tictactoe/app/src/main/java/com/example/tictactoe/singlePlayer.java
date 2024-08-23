@@ -18,7 +18,7 @@ public class singlePlayer extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_ai_choose_symbol);
+        setContentView(R.layout.activity_computer_symbol);
         EdgeToEdge.enable(this);
 
         // Initialize Views

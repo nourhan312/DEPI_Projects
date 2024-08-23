@@ -1,6 +1,7 @@
 package com.example.tictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
@@ -9,8 +10,9 @@ import androidx.appcompat.widget.AppCompatButton;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppCompatButton startGameButton;
+    private AppCompatButton startGameButton , logoutBtn;
     private SoundManager soundManager;
+     private SharedPreferences preferences;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +23,35 @@ public class MainActivity extends AppCompatActivity {
 
         // Set the content view to the main activity layout
         setContentView(R.layout.activity_main);
+
+         preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
+
+
+        if (!isLoggedIn) {
+            // User is not logged in, navigate to Login Activity
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+            finish();
+            return;
+        }
+
+        logoutBtn = findViewById(R.id.logout_button);
+        logoutBtn.setOnClickListener( v->{
+
+
+                // Clear login state
+                 preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.clear();
+                editor.apply();
+
+                // Navigate to Login Activity
+                Intent intent = new Intent(MainActivity.this, Login.class);
+                startActivity(intent);
+                finish();
+
+        });
 
         // Initialize the SoundManager instance
         soundManager = new SoundManager(this);

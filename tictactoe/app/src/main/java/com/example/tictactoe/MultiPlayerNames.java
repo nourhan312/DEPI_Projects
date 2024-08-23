@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
@@ -24,7 +23,7 @@ public class MultiPlayerNames extends AppCompatActivity {
 
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_offline_get_players_names);
+        setContentView(R.layout.activity_multi_players_names);
         EdgeToEdge.enable(this);
 
         soundManager = new SoundManager(this);

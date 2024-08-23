@@ -17,6 +17,7 @@
 
             android:layout_width="match_parent"
          android:layout_height="match_parent"
+            android:padding="10dp"
          android:orientation="vertical">
 
 
@@ -31,10 +32,10 @@
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginTop="20dp"
-                    android:text="are you want to quit !"
+                    android:text="@string/are_you_want_to_quit"
                     android:layout_gravity="center"
                     android:gravity="center"
-                    android:textSize="20dp"
+                    android:textSize="20sp"
                     android:fontFamily="@font/poppins_medium"
                     android:textColor="#2C2C2C"
                     android:textStyle="bold"
@@ -67,22 +68,21 @@
                         android:textAllCaps="false"
                         android:layout_gravity="center"
 
-                        android:background="@drawable/red_button">
+                        android:background="@drawable/button_blue">
 
                     </androidx.appcompat.widget.AppCompatButton>
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1"
-                        ></View>
+                        android:layout_weight="1" />
 
                     <androidx.appcompat.widget.AppCompatButton
                         android:id="@+id/continue_btn"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="Cancel"
+                        android:text="@string/cancel"
                         android:textSize="18dp"
                         android:fontFamily="@font/poppins_regular"
                         android:textStyle="bold"
@@ -90,13 +90,12 @@
                         android:textAllCaps="false"
                         android:layout_gravity="center"
                         android:gravity="center"
-                        android:background="@drawable/purple_btn"></androidx.appcompat.widget.AppCompatButton>
+                        android:background="@drawable/button_red" />
 
                     <View
                         android:layout_width="0dp"
                         android:layout_height="match_parent"
-                        android:layout_weight="1.5"
-                        ></View>
+                        android:layout_weight="1.5" />
                 </LinearLayout>
 
             </LinearLayout>

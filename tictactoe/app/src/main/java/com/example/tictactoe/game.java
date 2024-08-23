@@ -38,7 +38,7 @@ public class game extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
-        setContentView(R.layout.activity_ai_game);
+        setContentView(R.layout.activity_singleuser_game);
 
         // Initialize the grid cells
         cells[0] = findViewById(R.id.img_1);
@@ -225,7 +225,7 @@ public class game extends AppCompatActivity {
     }
     private void showWinDialog(String winner) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.robot_win_dialog, null);
+        View view = getLayoutInflater().inflate(R.layout.win_dialog, null);
         builder.setView(view);
 
         AlertDialog dialog = builder.create();

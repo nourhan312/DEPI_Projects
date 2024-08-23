@@ -5,9 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -36,7 +34,7 @@ public class MultiPlayerGame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_game);
+        setContentView(R.layout.activity_single_player_game);
 
         // Initialize the grid cells
         cells[0] = findViewById(R.id.img_1);
@@ -227,7 +225,7 @@ public class MultiPlayerGame extends AppCompatActivity {
 
     private void showWinDialog(String winner) {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
-        View view = getLayoutInflater().inflate(R.layout.robot_win_dialog, null);
+        View view = getLayoutInflater().inflate(R.layout.win_dialog, null);
         builder.setView(view);
 
         AlertDialog dialog = builder.create();

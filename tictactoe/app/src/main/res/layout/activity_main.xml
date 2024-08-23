@@ -52,6 +52,25 @@
     <View
         android:layout_width="match_parent"
         android:layout_height="0dp"
+        android:layout_weight="0.05" />
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/logout_button"
+
+        android:layout_gravity="center"
+        android:layout_width="220dp"
+        android:layout_height="wrap_content"
+        android:padding="15dp"
+
+        android:background="@drawable/app_main_theme_background"
+        android:fontFamily="@font/poppins_medium"
+        android:text="Logout"
+        android:elevation="10dp"
+        android:textColor="@color/cardview_light_background"
+        android:textSize="18sp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
         android:layout_weight="0.1" />
 
 </LinearLayout>

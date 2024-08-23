@@ -12,24 +12,35 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.TicTacToe"
         tools:targetApi="31">
-        <meta-data
-            android:name="com.google.android.actions"
-            android:resource="@xml/backup_rules" />
+        <activity
+            android:name=".signup"
+            android:exported="true">
 
+        </activity>
         <activity
-            android:name=".menu"
-            android:exported="true"></activity>
-        <activity
-            android:name=".game"
-            android:exported="true"></activity>
-        <activity
-            android:name=".MainActivity"
+            android:name=".Login"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.actions"
+            android:resource="@xml/backup_rules" />
+
+        <activity
+            android:name=".menu"
+            android:exported="true" />
+        <activity
+            android:name=".game"
+            android:exported="true" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="true">
+
         </activity>
         <activity
             android:name=".singlePlayer"
@@ -49,6 +60,7 @@
         <activity
             android:name=".MultiPlayerSymbol"
             android:exported="true" />
+
 
     </application>
 
