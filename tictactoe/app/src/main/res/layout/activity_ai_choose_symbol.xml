@@ -160,10 +160,10 @@
         android:text="continue"
         android:textAllCaps="false"
         android:textSize="21sp"
-        android:fontFamily="@font/poppins_regular"
-        android:textColor="@color/black"
+        android:fontFamily="@font/poppins_medium"
+        android:textColor="@color/white"
         android:layout_marginLeft="110dp"
-        android:background="@drawable/button_2"
+        android:background="@drawable/button_1"
         android:layout_marginRight="110dp" />
 
 

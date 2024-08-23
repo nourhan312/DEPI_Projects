@@ -186,7 +186,13 @@ public class game extends AppCompatActivity {
         }
         playerTurn = true; // Reset to player's turn
     }
-
+    private void clearScore() {
+        playerScore = 0;
+        computerScore = 0;
+        playerPoints.setText(String.valueOf(playerScore));
+        computerPoints.setText(String.valueOf(computerScore));
+        clearBoard(); // Optionally clear the board as well
+    }
 
 
 

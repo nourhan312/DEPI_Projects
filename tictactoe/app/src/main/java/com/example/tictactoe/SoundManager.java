@@ -11,7 +11,7 @@ public class SoundManager {
     private static SoundPool soundPool;
     private static int clickSoundId;
 
-    private static boolean isSoundEnabled = true;  // default to true
+    private static boolean isSoundEnabled = false;  // default to true
     private static boolean isClickSoundEnabled = true;  // default to true
     private static boolean isMusicInitialized = false;
 
