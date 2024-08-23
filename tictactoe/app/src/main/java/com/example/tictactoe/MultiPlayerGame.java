@@ -31,6 +31,7 @@ public class MultiPlayerGame extends AppCompatActivity {
 
     private int playerOneScore = 0;
     private int playerTwoScore = 0;
+    private  SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,6 +58,8 @@ public class MultiPlayerGame extends AppCompatActivity {
         String playerOneSymbolString = getIntent().getStringExtra("PLAYER1_SYMBOL");
 
         // Initialize Views
+
+        soundManager = new SoundManager(this);
         playeroneNameTextView = findViewById(R.id.FplayerName);
         player1Points = findViewById(R.id.FPlayerScore);
         player1SymbolView = findViewById(R.id.FplayerSymbol);
@@ -85,11 +88,20 @@ public class MultiPlayerGame extends AppCompatActivity {
         // Set up click listeners for each cell
         for (int i = 0; i < cells.length; i++) {
             final int index = i;
-            cells[i].setOnClickListener(v -> onCellClicked(index));
+            cells[i].setOnClickListener(v -> {
+                soundManager.playClickSound();
+                onCellClicked(index);
+            });
         }
 
-        clearButton.setOnClickListener(v -> clearScore());
-        backbtn.setOnClickListener(v -> BackPressed());
+        clearButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            clearScore();
+        });
+        backbtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            BackPressed();
+        });
 
         updateTurnIndicator(); // Highlight the current player's turn
     }
@@ -109,12 +121,16 @@ public class MultiPlayerGame extends AppCompatActivity {
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerGame.this, menu.class);
             startActivity(intent);
             finish(); // Or call any method to exit the application
         });
 
-        continueButton.setOnClickListener(v -> dialog.dismiss());
+        continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            dialog.dismiss();
+        });
 
         dialog.show();
     }
@@ -223,11 +239,13 @@ public class MultiPlayerGame extends AppCompatActivity {
         winMessage.setText( winner + " Wins!");
 
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             dialog.dismiss();
             clearBoard(); // Clear the board when continuing
         });
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerGame.this, menu.class);
             startActivity(intent);
             dialog.dismiss();
@@ -248,11 +266,13 @@ public class MultiPlayerGame extends AppCompatActivity {
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             dialog.dismiss();
             clearBoard(); // Clear the board when continuing
         });
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerGame.this, menu.class);
             startActivity(intent);
             dialog.dismiss();

@@ -13,6 +13,7 @@ public class singlePlayer extends AppCompatActivity {
     private AppCompatButton continueButton;
     private ImageView xSymbol, oSymbol, xRadio, oRadio;
     private boolean isXSelected = true; // Default selection is 'X'
+    private  SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,6 +22,7 @@ public class singlePlayer extends AppCompatActivity {
         EdgeToEdge.enable(this);
 
         // Initialize Views
+        soundManager = new SoundManager(this);
         backButton = findViewById(R.id.ai_back_icon);
         continueButton = findViewById(R.id.ai_pick_side_continue_btn);
         xSymbol = findViewById(R.id.xsymbol_img);
@@ -29,11 +31,19 @@ public class singlePlayer extends AppCompatActivity {
         oRadio = findViewById(R.id.circle_radio);
 
         // Handle Symbol Selection
-        xSymbol.setOnClickListener(v -> selectXSymbol());
-        oSymbol.setOnClickListener(v -> selectOSymbol());
+        xSymbol.setOnClickListener(v -> {
+
+            soundManager.playClickSound();
+            selectXSymbol();
+        });
+        oSymbol.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            selectOSymbol();
+        });
 
         // Continue Button
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             // Get Player Name from Intent
             String playerName = getIntent().getStringExtra("PLAYER_NAME");
 
@@ -46,6 +56,7 @@ public class singlePlayer extends AppCompatActivity {
 
         // Back Button
         backButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(singlePlayer.this, menu.class);
             startActivity(intent);
         });

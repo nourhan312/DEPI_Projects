@@ -16,6 +16,7 @@ public class MultiPlayerSymbol extends AppCompatActivity {
     private ImageView xSymbol, oSymbol, xRadio, oRadio;
     private TextView playerName ;
     private boolean isXSelected = true; // Default selection is 'X'
+    private SoundManager soundManager;
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,7 +25,7 @@ public class MultiPlayerSymbol extends AppCompatActivity {
 
 
         // Initialize Views
-
+        soundManager = new SoundManager(this);
         backButton = findViewById(R.id.multi_back_icon);
         continueButton = findViewById(R.id.mulcontinue_btn);
         xSymbol = findViewById(R.id.xsymbol_img);
@@ -39,10 +40,17 @@ public class MultiPlayerSymbol extends AppCompatActivity {
         // Set Player Name
         playerName.setText(player + " Pick your side");
         // Handle Symbol Selection
-        xSymbol.setOnClickListener(v -> selectXSymbol());
-        oSymbol.setOnClickListener(v -> selectOSymbol());
+        xSymbol.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            selectXSymbol();
+        });
+        oSymbol.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            selectOSymbol();
+        });
         // Continue Button
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             // Get Player Name from Intent
             String playerOneName = getIntent().getStringExtra("PLAYERONE_NAME");
             String playerTwoName = getIntent().getStringExtra("PLAYERTWO_NAME");
@@ -57,6 +65,7 @@ public class MultiPlayerSymbol extends AppCompatActivity {
 
         // Back Button
         backButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerSymbol.this, menu.class);
             startActivity(intent);
         });

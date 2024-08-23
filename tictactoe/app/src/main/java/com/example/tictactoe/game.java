@@ -31,6 +31,7 @@ public class game extends AppCompatActivity {
 
     private int playerScore = 0;
     private int computerScore = 0;
+    private  SoundManager soundManager;
 
 
     @Override
@@ -50,6 +51,8 @@ public class game extends AppCompatActivity {
         cells[7] = findViewById(R.id.img_8);
         cells[8] = findViewById(R.id.img_9);
 
+
+        soundManager = new SoundManager(this);
         clearButton = findViewById(R.id.clear_button);
         backbtn = findViewById(R.id.game_back_icon);
 
@@ -83,11 +86,20 @@ public class game extends AppCompatActivity {
         // Set up click listeners for each cell
         for (int i = 0; i < cells.length; i++) {
             final int index = i;
-            cells[i].setOnClickListener(v -> onCellClicked(index));
+            cells[i].setOnClickListener(v -> {
+                soundManager.playClickSound();
+                onCellClicked(index);
+            });
         }
 
-        clearButton.setOnClickListener(v -> clearBoard());
-        backbtn.setOnClickListener(v -> BackPressed());
+        clearButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            clearBoard();
+        });
+        backbtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            BackPressed();
+        });
     }
 
     private void onCellClicked(int index) {
@@ -194,6 +206,7 @@ public class game extends AppCompatActivity {
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(game.this, menu.class);
             startActivity(intent);
             // Handle the quit action
@@ -218,11 +231,13 @@ public class game extends AppCompatActivity {
         winMessage.setText(    winner + " Wins!");
 
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             dialog.dismiss();
             clearBoard(); // Clear the board when continuing
         });
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(game.this, menu.class);
             startActivity(intent);
             dialog.dismiss();
@@ -244,11 +259,13 @@ public class game extends AppCompatActivity {
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
         continueButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             dialog.dismiss();
             clearBoard(); // Clear the board when continuing
         });
 
         quitButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(game.this, menu.class);
             startActivity(intent);
             dialog.dismiss();

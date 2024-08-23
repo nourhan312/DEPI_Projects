@@ -13,39 +13,38 @@ public class SoundManager {
 
     private static boolean isSoundEnabled = true;  // default to true
     private static boolean isClickSoundEnabled = true;  // default to true
+    private static boolean isMusicInitialized = false;
 
-    // Initialize the SoundManager resources
     public SoundManager(Context context) {
-        initBackgroundMusic(context);
-        initClickSound(context);
-    }
-
-    // Initialize the MediaPlayer for background music
-    private void initBackgroundMusic(Context context) {
-        if (backgroundMusicPlayer == null) {
-            backgroundMusicPlayer = MediaPlayer.create(context, R.raw.background);
-            backgroundMusicPlayer.setLooping(true); // Loop the music
-        }
-    }
-
-    // Initialize the SoundPool for click sounds
-    private void initClickSound(Context context) {
         if (soundPool == null) {
-            AudioAttributes audioAttributes = new AudioAttributes.Builder()
-                    .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
-                    .setUsage(AudioAttributes.USAGE_GAME)
-                    .build();
+            initClickSound(context);
+        }
 
-            soundPool = new SoundPool.Builder()
-                    .setMaxStreams(1)
-                    .setAudioAttributes(audioAttributes)
-                    .build();
-
-            clickSoundId = soundPool.load(context, R.raw.click, 1); // Load the click sound
+        if (!isMusicInitialized) {
+            initBackgroundMusic(context);
         }
     }
 
-    // Enable background music
+    private void initBackgroundMusic(Context context) {
+        backgroundMusicPlayer = MediaPlayer.create(context, R.raw.background);
+        backgroundMusicPlayer.setLooping(true);
+        isMusicInitialized = true;
+    }
+
+    private void initClickSound(Context context) {
+        AudioAttributes audioAttributes = new AudioAttributes.Builder()
+                .setContentType(AudioAttributes.CONTENT_TYPE_SONIFICATION)
+                .setUsage(AudioAttributes.USAGE_GAME)
+                .build();
+
+        soundPool = new SoundPool.Builder()
+                .setMaxStreams(1)
+                .setAudioAttributes(audioAttributes)
+                .build();
+
+        clickSoundId = soundPool.load(context, R.raw.click, 1);
+    }
+
     public void enableSound() {
         isSoundEnabled = true;
         if (backgroundMusicPlayer != null && !backgroundMusicPlayer.isPlaying()) {
@@ -53,42 +52,36 @@ public class SoundManager {
         }
     }
 
-    // Disable background music
     public void disableSound() {
         isSoundEnabled = false;
         if (backgroundMusicPlayer != null && backgroundMusicPlayer.isPlaying()) {
             backgroundMusicPlayer.pause();
+            backgroundMusicPlayer.seekTo(0);  // Restart music from the beginning when re-enabled
         }
     }
 
-    // Enable click sound effects
     public void enableClickSound() {
         isClickSoundEnabled = true;
     }
 
-    // Disable click sound effects
     public void disableClickSound() {
         isClickSoundEnabled = false;
     }
 
-    // Play click sound effect
     public void playClickSound() {
         if (isClickSoundEnabled && soundPool != null) {
             soundPool.play(clickSoundId, 1, 1, 0, 0, 1);
         }
     }
 
-    // Check if sound is enabled
     public static boolean isSoundEnabled() {
         return isSoundEnabled;
     }
 
-    // Check if click sound is enabled
     public static boolean isClickSoundEnabled() {
         return isClickSoundEnabled;
     }
 
-    // Release resources (if needed)
     public void release() {
         if (backgroundMusicPlayer != null) {
             backgroundMusicPlayer.release();

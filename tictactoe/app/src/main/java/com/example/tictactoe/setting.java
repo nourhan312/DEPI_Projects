@@ -3,11 +3,9 @@ package com.example.tictactoe;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.Switch;
 
-import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 
 public class setting extends AppCompatActivity {
@@ -27,28 +25,21 @@ public class setting extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
-        EdgeToEdge.enable(this);
 
-        // Initialize SoundManager
         soundManager = new SoundManager(this);
 
-        // Initialize SharedPreferences
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
-        // Initialize views
         backbtn = findViewById(R.id.settings_back_icon);
         soundSwitch = findViewById(R.id.music_switch);
         clickedSwitch = findViewById(R.id.click_switch);
 
-        // Load saved preferences
         boolean isSoundEnabled = sharedPreferences.getBoolean(SOUND_PREF, true);
         boolean isClickEnabled = sharedPreferences.getBoolean(CLICK_PREF, true);
 
-        // Set the switches to their saved states
         soundSwitch.setChecked(isSoundEnabled);
         clickedSwitch.setChecked(isClickEnabled);
 
-        // Apply saved settings
         if (isSoundEnabled) {
             soundManager.enableSound();
         } else {
@@ -61,14 +52,12 @@ public class setting extends AppCompatActivity {
             soundManager.disableClickSound();
         }
 
-        // Handle back button click
         backbtn.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(setting.this, menu.class);
             startActivity(intent);
         });
 
-        // Handle sound switch toggle
         soundSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             savePreference(SOUND_PREF, isChecked);
             if (isChecked) {
@@ -78,7 +67,6 @@ public class setting extends AppCompatActivity {
             }
         });
 
-        // Handle clicked switch toggle
         clickedSwitch.setOnCheckedChangeListener((buttonView, isChecked) -> {
             savePreference(CLICK_PREF, isChecked);
             if (isChecked) {
@@ -89,7 +77,6 @@ public class setting extends AppCompatActivity {
         });
     }
 
-    // Method to save preferences
     private void savePreference(String key, boolean value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();
         editor.putBoolean(key, value);

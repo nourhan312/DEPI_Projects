@@ -7,6 +7,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.activity.EdgeToEdge;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -16,12 +17,17 @@ public class MultiPlayerNames extends AppCompatActivity {
     private AppCompatButton nextButton;
     private ImageView backBtn;
     private EditText PlayerOne, PlayerTwo;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_offline_get_players_names);
+        EdgeToEdge.enable(this);
 
+        soundManager = new SoundManager(this);
         PlayerOne = findViewById(R.id.player1_name_edttxt);
         PlayerTwo = findViewById(R.id.player2_name_edttxt);
 
@@ -29,6 +35,7 @@ public class MultiPlayerNames extends AppCompatActivity {
         backBtn = findViewById(R.id.choose_players_back_icon);
 
         nextButton.setOnClickListener(v -> {
+            soundManager.playClickSound();
             String player1 = PlayerOne.getText().toString().trim();
             String player2 = PlayerTwo.getText().toString().trim();
 
@@ -51,6 +58,7 @@ public class MultiPlayerNames extends AppCompatActivity {
         });
 
         backBtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerNames.this, menu.class);
             startActivity(intent);
         });

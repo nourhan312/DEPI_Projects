@@ -15,6 +15,8 @@ public class menu extends AppCompatActivity {
     private ImageView backbtn;
     private CardView singleplayercard, multiplayerCard , settingsCard;
 
+    private  SoundManager soundManager;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -23,7 +25,7 @@ public class menu extends AppCompatActivity {
 
 
         // Initialize SoundManager
-        SoundManager soundManager = new SoundManager(this);
+         soundManager = new SoundManager(this);
 
 
        backbtn = findViewById(R.id.menu_back_icon);

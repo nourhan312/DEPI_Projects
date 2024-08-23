@@ -13,6 +13,7 @@ public class choosePlayerName extends AppCompatActivity {
     private ImageView backbtn;
     private AppCompatButton Nextbtn;
     private EditText playerNameEditText;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,18 +22,21 @@ public class choosePlayerName extends AppCompatActivity {
         setContentView(R.layout.activity_aiget_player_name);
 
         // initialize Views
+        soundManager = new SoundManager(this);
         backbtn = findViewById(R.id.choose_player_back_icon);
         Nextbtn = findViewById(R.id.ai_player_name_btn);
         playerNameEditText = findViewById(R.id.ai_player_name_edttxt);
 
         // Back Button
         backbtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(choosePlayerName.this, menu.class);
             startActivity(intent);
         });
 
         // Next Button
         Nextbtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
             // Get Player Name
             String playerName = playerNameEditText.getText().toString().trim();
 
