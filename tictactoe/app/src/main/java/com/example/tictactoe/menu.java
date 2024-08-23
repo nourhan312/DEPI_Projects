@@ -20,6 +20,12 @@ public class menu extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_menu);
+
+
+        // Initialize SoundManager
+        SoundManager soundManager = new SoundManager(this);
+
+
        backbtn = findViewById(R.id.menu_back_icon);
         singleplayercard = findViewById(R.id.singlePlayerCard);
         multiplayerCard = findViewById(R.id.multiplayerCard);
@@ -27,18 +33,22 @@ public class menu extends AppCompatActivity {
 
 
         backbtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(menu.this, MainActivity.class);
             startActivity(intent);
         });
         singleplayercard.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(menu.this, choosePlayerName.class);
             startActivity(intent);
         });
         settingsCard.setOnClickListener(v -> {
+            soundManager.playClickSound();
             Intent intent = new Intent(menu.this, setting.class);
             startActivity(intent);
         });
         multiplayerCard.setOnClickListener(v -> {
+            soundManager.playClickSound();
 
             Intent intent = new Intent(menu.this, MultiPlayerNames.class);
             startActivity(intent);

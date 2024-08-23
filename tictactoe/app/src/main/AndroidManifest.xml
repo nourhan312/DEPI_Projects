@@ -49,6 +49,7 @@
         <activity
             android:name=".MultiPlayerSymbol"
             android:exported="true" />
+
     </application>
 
 </manifest>
