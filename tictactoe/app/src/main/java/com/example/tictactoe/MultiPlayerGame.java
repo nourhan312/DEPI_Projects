@@ -8,6 +8,7 @@ import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
@@ -36,8 +37,8 @@ public class MultiPlayerGame extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_single_player_game);
-
+        setContentView(R.layout.activity_multi_player_game);
+        EdgeToEdge.enable(this);
         // Initialize the grid cells
         cells[0] = findViewById(R.id.img_1);
         cells[1] = findViewById(R.id.img_2);
@@ -225,10 +226,12 @@ public class MultiPlayerGame extends AppCompatActivity {
 
         if (playerTurn) {
             // Player 1's turn: Highlight Player 1's card
-            PlayerOneCard.setBackground(ContextCompat.getDrawable(this, R.drawable.white_border));
+            PlayerOneCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_border));
+            PlayerTwoCard.setBackground(ContextCompat.getDrawable(this, R.drawable.blue_card_without_border));
         } else {
             // Player 2's turn: Highlight Player 2's card
-            PlayerTwoCard.setBackground(ContextCompat.getDrawable(this, R.drawable.white_border));
+            PlayerTwoCard.setBackground(ContextCompat.getDrawable(this, R.drawable.blue_card_white_border));
+            PlayerOneCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_without_border)); // Highlight PlayerOneCard
         }
     }
 

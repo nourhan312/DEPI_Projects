@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
@@ -13,6 +14,12 @@ import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+import androidx.cardview.widget.CardView;
+import androidx.core.content.ContextCompat;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Random;
 
 public class game extends AppCompatActivity {
     private AppCompatButton clearButton;
@@ -20,9 +27,9 @@ public class game extends AppCompatActivity {
 
     private TextView playerNameTextView;
     private ImageView playerSymbolView;
-    private  ImageView ComputerSymbolView;
-    private  TextView computerPoints;
-    private  TextView playerPoints;
+    private ImageView ComputerSymbolView;
+    private TextView computerPoints;
+    private TextView playerPoints;
 
     private ImageView[] cells = new ImageView[9];
     private int[] board = new int[9]; // 0: empty, 1: player, 2: computer
@@ -33,8 +40,10 @@ public class game extends AppCompatActivity {
 
     private int playerScore = 0;
     private int computerScore = 0;
-    private  SoundManager soundManager;
+    private SoundManager soundManager;
 
+    private CardView PlayerOneCard, ComputerCard;
+    private boolean dialogShowing = false; // Prevent multiple dialogs from showing
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,7 +62,6 @@ public class game extends AppCompatActivity {
         cells[7] = findViewById(R.id.img_8);
         cells[8] = findViewById(R.id.img_9);
 
-
         soundManager = new SoundManager(this);
         clearButton = findViewById(R.id.clear_button);
         backbtn = findViewById(R.id.game_back_icon);
@@ -65,11 +73,11 @@ public class game extends AppCompatActivity {
         // Initialize Views
         playerNameTextView = findViewById(R.id.playerName);
         playerSymbolView = findViewById(R.id.playerSymbol);
-        ComputerSymbolView= findViewById(R.id.computerSymbol);
+        ComputerSymbolView = findViewById(R.id.computerSymbol);
         computerPoints = findViewById(R.id.computerScore);
         playerPoints = findViewById(R.id.PlayerScore);
-
-
+        PlayerOneCard = findViewById(R.id.playerCard);
+        ComputerCard = findViewById(R.id.comuterCard);
 
         // Set player's symbol based on the passed string ("X" or "O")
         if (playerSymbolString.equals("X")) {
@@ -103,42 +111,60 @@ public class game extends AppCompatActivity {
             soundManager.playClickSound();
             BackPressed();
         });
+
+        updateTurnIndicator();
+    }
+
+    private void computerMove() {
+      //  ComputerCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_border));
+        List<Integer> availableCells = new ArrayList<>();
+        for (int i = 0; i < board.length; i++) {
+            if (board[i] == 0) {
+                availableCells.add(i);
+            }
+        }
+
+        if (!availableCells.isEmpty()) {
+            int move = availableCells.get(new Random().nextInt(availableCells.size()));
+            board[move] = 2;
+            cells[move].setImageResource(computerSymbol);
+
+            if (checkWinCondition(2)) {
+                Toast.makeText(this, R.string.computer_wins, Toast.LENGTH_SHORT).show();
+            }
+            playerTurn = true;
+            updateTurnIndicator();
+        }
+    }
+
+    private boolean isDraw() {
+        for (int value : board) {
+            if (value == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     private void onCellClicked(int index) {
-        if (board[index] != 0) {
-            return; // Cell already occupied
+        if (dialogShowing || board[index] != 0) {
+            return; // Do nothing if a dialog is showing or the cell is occupied
         }
 
         if (playerTurn) {
             board[index] = 1;
             cells[index].setImageResource(playerSymbol); // Use the player's chosen symbol
-            playerTurn = false;
-
             if (checkWinCondition(1)) {
-                Toast.makeText(this, R.string.player_wins, Toast.LENGTH_SHORT).show();
-                return;
+                return; // Exit early if the player wins
             }
-
-            // Computer's move
+            if (isDraw()) {
+                showDrawDialog();
+                return; // Exit early if it's a draw
+            }
+            playerTurn = false;
             computerMove();
         }
-    }
-
-    private void computerMove() {
-        // Simple AI: Choose the first available cell
-        for (int i = 0; i < board.length; i++) {
-            if (board[i] == 0) {
-                board[i] = 2;
-                cells[i].setImageResource(computerSymbol); // Use the computer's symbol
-                playerTurn = true;
-
-                if (checkWinCondition(2)) {
-                    Toast.makeText(this, R.string.computer_wins, Toast.LENGTH_SHORT).show();
-                }
-                return;
-            }
-        }
+        updateTurnIndicator(); // Update after the move
     }
 
     private boolean checkWinCondition(int player) {
@@ -164,23 +190,8 @@ public class game extends AppCompatActivity {
             }
         }
 
-        // Check for a draw
-        boolean draw = true;
-        for (int value : board) {
-            if (value == 0) {
-                draw = false;
-                break;
-            }
-        }
-        if (draw) {
-            showDrawDialog();
-            return true;
-        }
-
         return false;
     }
-
-
 
     private void clearBoard() {
         for (int i = 0; i < cells.length; i++) {
@@ -189,6 +200,7 @@ public class game extends AppCompatActivity {
         }
         playerTurn = true; // Reset to player's turn
     }
+
     private void clearScore() {
         playerScore = 0;
         computerScore = 0;
@@ -197,12 +209,9 @@ public class game extends AppCompatActivity {
         clearBoard(); // Optionally clear the board as well
     }
 
-
-
     public void BackPressed() {
         showQuitDialog();
     }
-
 
     private void showQuitDialog() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
@@ -213,50 +222,42 @@ public class game extends AppCompatActivity {
 
         AppCompatButton quitButton = view.findViewById(R.id.quit_btn);
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
-        // Set the background of the dialog window to be transparent
+
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            // Optionally, adjust the size of the dialog window
             dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         }
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.quit_dialog, null);
-        dialog.setContentView(dialogView);
+
         quitButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(game.this, menu.class);
             startActivity(intent);
-            // Handle the quit action
-            finish(); // Or call any method to exit the application
+            finish(); // Handle the quit action
         });
 
         continueButton.setOnClickListener(v -> dialog.dismiss());
 
         dialog.show();
     }
+
     private void showWinDialog(String winner) {
+        dialogShowing = true; // Set flag to true
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.win_dialog, null);
         builder.setView(view);
 
         AlertDialog dialog = builder.create();
 
-
-
-        // Set the background of the dialog window to be transparent
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            // Optionally, adjust the size of the dialog window
             dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         }
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.win_dialog, null);
-        dialog.setContentView(dialogView);
+
         TextView winMessage = view.findViewById(R.id.win_message_details);
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
-        winMessage.setText(    winner + getString(R.string.wins));
+        winMessage.setText(winner + getString(R.string.wins));
 
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();
@@ -272,30 +273,26 @@ public class game extends AppCompatActivity {
             finish(); // Quit the game
         });
 
+        dialog.setOnDismissListener(dialogInterface -> dialogShowing = false); // Reset flag when dialog is dismissed
         dialog.show();
     }
 
-
     private void showDrawDialog() {
+        dialogShowing = true; // Set flag to true
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         View view = getLayoutInflater().inflate(R.layout.draw_dialog, null);
         builder.setView(view);
 
         AlertDialog dialog = builder.create();
-        View dialogView = LayoutInflater.from(this).inflate(R.layout.draw_dialog, null);
-        dialog.setContentView(dialogView);
+
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
-
-
-        // Set the background of the dialog window to be transparent
-        if (dialog.getWindow() != null) {
-            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
-
-            // Optionally, adjust the size of the dialog window
-            dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
-        }
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             dialog.dismiss();
@@ -310,9 +307,17 @@ public class game extends AppCompatActivity {
             finish(); // Quit the game
         });
 
+        dialog.setOnDismissListener(dialogInterface -> dialogShowing = false); // Reset flag when dialog is dismissed
         dialog.show();
     }
 
-
-
+    private void updateTurnIndicator() {
+        if (playerTurn) {
+            PlayerOneCard.setBackground(ContextCompat.getDrawable(this, R.drawable.blue_card_white_border));
+            ComputerCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_without_border));
+        } else {
+            ComputerCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_border));
+            PlayerOneCard.setCardBackgroundColor(ContextCompat.getColor(this, R.drawable.blue_card_without_border));
+        }
+    }
 }
