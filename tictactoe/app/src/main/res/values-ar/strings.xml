@@ -19,6 +19,8 @@
     <string name="feedback">التغذية الراجعة</string>
     <string name="are_you_want_to_quit">هل تريد الخروج!</string>
     <string name="cancel">إلغاء</string>
+    <!-- res/values-de/strings.xml -->
+    <string name="welcome">مرحبا , </string>
 
     <string name="welcome_back">مرحباً بعودتك</string>
     <string name="enter_your_email">أدخل بريدك الإلكتروني</string>

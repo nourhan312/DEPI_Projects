@@ -61,6 +61,8 @@
     <string name="invalid_credentials">Credenciales inválidas</string>
     <string name="login_successful">Inicio de sesión exitoso</string>
     <string name="password_is_required">Se requiere contraseña</string>
+    <!-- res/values-es/strings.xml -->
+    <string name="welcome">Bienvenido, </string>
 
     <string-array name="languages">
         <item>Inglés</item>

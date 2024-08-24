@@ -59,6 +59,7 @@ public class Login extends AppCompatActivity {
         });
 
         loginBtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
             String email = editTextEmailAddress.getText().toString().trim();
             String password = editTextPassword.getText().toString().trim();
 

@@ -14,27 +14,20 @@ import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppCompatButton startGameButton , logoutBtn;
+    private AppCompatButton startGameButton, logoutBtn;
     private SoundManager soundManager;
-     private SharedPreferences preferences;
-     private TextView welcomeMessageTextView;
+    private SharedPreferences preferences;
+    private TextView welcomeMessageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-       // Load saved language preference
-
-        // Enable edge-to-edge layout
         EdgeToEdge.enable(this);
-
-        // Set the content view to the main activity layout
         setContentView(R.layout.activity_main);
 
-
-         preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
-        String userName = preferences.getString("userName", "");
-
+        String userName = preferences.getString("userName", ""); // Retrieve username
 
         if (!isLoggedIn) {
             // User is not logged in, navigate to Login Activity
@@ -43,28 +36,25 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
+
         welcomeMessageTextView = findViewById(R.id.WelcometextView);
         logoutBtn = findViewById(R.id.logout_button);
-        logoutBtn.setOnClickListener( v->{
-               soundManager.playClickSound();
+        logoutBtn.setOnClickListener(v -> {
+            soundManager.playClickSound();
 
-                // Clear login state
-                 preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                SharedPreferences.Editor editor = preferences.edit();
-                editor.clear();
-                editor.apply();
+            // Clear login state
+            SharedPreferences.Editor editor = preferences.edit();
+            editor.clear();
+            editor.apply();
 
-                // Navigate to Login Activity
-                Intent intent = new Intent(MainActivity.this, Login.class);
-                startActivity(intent);
-                finish();
-
+            // Navigate to Login Activity
+            Intent intent = new Intent(MainActivity.this, Login.class);
+            startActivity(intent);
+            finish();
         });
 
+        welcomeMessageTextView.setText(getString(R.string.welcome) + userName); // Display username
 
-        welcomeMessageTextView.setText("Welcome , " + userName);
-
-        // Initialize the SoundManager instance
         soundManager = new SoundManager(this);
 
         // Apply saved sound preferences
@@ -80,20 +70,11 @@ public class MainActivity extends AppCompatActivity {
             soundManager.disableClickSound();
         }
 
-        // Find the start game button by its ID
         startGameButton = findViewById(R.id.start_button);
-
-        // Set an OnClickListener on the start game button
         startGameButton.setOnClickListener(v -> {
-            // Play the click sound using SoundManager
             soundManager.playClickSound();
-
-            // Create an intent to navigate to the menu activity
             Intent intent = new Intent(MainActivity.this, menu.class);
             startActivity(intent);
         });
     }
-
-
-
 }

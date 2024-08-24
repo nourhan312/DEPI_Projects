@@ -61,6 +61,7 @@
     <string name="invalid_credentials">Invalid credentials</string>
     <string name="login_successful">Login successful</string>
     <string name="password_is_required">password is required</string>
+    <string name="welcome">"Welcome , "</string>
 
 
     <string-array name="languages">

@@ -61,6 +61,8 @@
     <string name="invalid_credentials">Identifiants invalides</string>
     <string name="login_successful">Connexion réussie</string>
     <string name="password_is_required">Le mot de passe est requis</string>
+    <!-- res/values-fr/strings.xml -->
+    <string name="welcome">Bienvenue, </string>
 
     <string-array name="languages">
         <item>Anglais</item>

@@ -61,6 +61,8 @@
     <string name="invalid_credentials">Ungültige Anmeldedaten</string>
     <string name="login_successful">Anmeldung erfolgreich</string>
     <string name="password_is_required">Passwort ist erforderlich</string>
+    <!-- res/values-de/strings.xml -->
+    <string name="welcome">Willkommen, </string>
 
     <string-array name="languages">
         <item>Englisch</item>
