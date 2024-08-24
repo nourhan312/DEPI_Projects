@@ -18,6 +18,7 @@ public class setting extends AppCompatActivity {
     private Switch soundSwitch;
     private Switch clickedSwitch;
 
+
     private ImageView btnEnglish, btnArabic, btnGerman, btnFrench , btnSpanish , btnRussian , btnHindi ;
 
     private SharedPreferences sharedPreferences;
@@ -71,11 +72,26 @@ public class setting extends AppCompatActivity {
         }
 
         // Set click listeners for each button
-        btnEnglish.setOnClickListener(v -> setLocale("en"));
-        btnArabic.setOnClickListener(v -> setLocale("ar"));
-        btnGerman.setOnClickListener(v -> setLocale("de"));
-        btnFrench.setOnClickListener(v -> setLocale("fr"));
-        btnSpanish.setOnClickListener(v -> setLocale("sp"));
+        btnEnglish.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            setLocale("en");
+        });
+        btnArabic.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            setLocale("ar");
+        });
+        btnGerman.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            setLocale("de");
+        });
+        btnFrench.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            setLocale("fr");
+        });
+        btnSpanish.setOnClickListener(v -> {
+            soundManager.playClickSound();
+            setLocale("sp");
+        });
 
 
 

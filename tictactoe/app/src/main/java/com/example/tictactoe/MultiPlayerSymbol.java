@@ -38,7 +38,8 @@ public class MultiPlayerSymbol extends AppCompatActivity {
 
         String player = getIntent().getStringExtra("PLAYERONE_NAME");
         // Set Player Name
-        playerName.setText(player + R.string.pick_your_side);
+        String text = player + getString(R.string.pick_your_side);
+        playerName.setText(text);
         // Handle Symbol Selection
         xSymbol.setOnClickListener(v -> {
             soundManager.playClickSound();

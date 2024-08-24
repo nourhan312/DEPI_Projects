@@ -95,6 +95,7 @@ public class game extends AppCompatActivity {
         clearButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             clearBoard();
+            clearScore();
         });
         backbtn.setOnClickListener(v -> {
             soundManager.playClickSound();

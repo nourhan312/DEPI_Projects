@@ -38,7 +38,9 @@ public class singlePlayer extends AppCompatActivity {
         });
         oSymbol.setOnClickListener(v -> {
             soundManager.playClickSound();
-            selectOSymbol();
+            selectOSymbol(
+
+            );
         });
 
         // Continue Button

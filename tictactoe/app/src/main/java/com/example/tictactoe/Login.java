@@ -21,6 +21,7 @@ public class Login extends AppCompatActivity {
     private AppCompatButton loginBtn;
     private DatabaseHelper dbHelper;
     private TextView register_redirect;
+    private SoundManager soundManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,67 +30,89 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         EdgeToEdge.enable(this);
 
+        // Initialize views
         editTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         loginBtn = findViewById(R.id.ai_player_name_btn);
-        dbHelper = new DatabaseHelper(this);
-
         register_redirect = findViewById(R.id.signupPage);
 
-        register_redirect.setOnClickListener(view ->  {
+        // Initialize SoundManager and DatabaseHelper
+        soundManager = new SoundManager(this);
+        dbHelper = new DatabaseHelper(this);
 
-                Intent intent = new Intent(Login.this, signup.class);
-                startActivity(intent);
+        // Check if the user is already logged in
+        SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
 
+        if (isLoggedIn) {
+            // If user is logged in, navigate to the main activity
+            Intent intent = new Intent(Login.this, MainActivity.class);
+            startActivity(intent);
+            finish();
+            return; // Skip the rest of the onCreate code
+        }
+
+        register_redirect.setOnClickListener(view -> {
+            soundManager.playClickSound();
+            Intent intent = new Intent(Login.this, signup.class);
+            startActivity(intent);
         });
 
-        loginBtn.setOnClickListener(v-> {
+        loginBtn.setOnClickListener(v -> {
+            String email = editTextEmailAddress.getText().toString().trim();
+            String password = editTextPassword.getText().toString().trim();
 
-                String email = editTextEmailAddress.getText().toString().trim();
-                String password = editTextPassword.getText().toString().trim();
+            if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
+                editTextEmailAddress.setError(getString(R.string.enter_valid_email));
+                return;
+            }
 
-                if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    editTextEmailAddress.setError("Enter a valid email");
-                    return;
-                }
+            if (password.isEmpty()) {
+                editTextPassword.setError(getString(R.string.password_is_required));
+                return;
+            }
 
-                if (password.isEmpty()) {
-                    editTextPassword.setError("Password is required");
-                    return;
-                }
+            if (dbHelper.checkUser(email, password)) {
+                // Save login state
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putBoolean("isLoggedIn", true);
+                editor.putString("userEmail", email); // Save email if needed
+                editor.apply();
 
-                if (dbHelper.checkUser(email, password)) {
+                Toast.makeText(Login.this, R.string.login_successful, Toast.LENGTH_SHORT).show();
 
-                    // Save login state
-                    SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-                    SharedPreferences.Editor editor = preferences.edit();
-                    editor.putBoolean("isLoggedIn", true);
-                    editor.putString("userEmail", email); // Save email if needed
-                    editor.apply();
-
-                    Toast.makeText(Login.this, "Login successful", Toast.LENGTH_SHORT).show();
-
-                    Intent intent = new Intent(Login.this, MainActivity.class);
-                    startActivity(intent);
-
-                    finish();
-
-                } else {
-                    Toast.makeText(Login.this, "Invalid credentials", Toast.LENGTH_SHORT).show();
-                }
-
+                Intent intent = new Intent(Login.this, MainActivity.class);
+                startActivity(intent);
+                finish();
+            } else {
+                Toast.makeText(Login.this, R.string.invalid_credentials, Toast.LENGTH_SHORT).show();
+            }
+            soundManager.playClickSound();
         });
     }
+
     private void setLocale(String lang) {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
-        config.locale = locale;
+        config.setLocale(locale); // Use setLocale method for better compatibility
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
     }
+
     public void loadLocale() {
-        SharedPreferences prefs = getSharedPreferences("Settings", MainActivity.MODE_PRIVATE);
-        String language = prefs.getString("My_Lang", "");
+        SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
+        String language = prefs.getString("My_Lang", ""); // Default to empty string if not set
         setLocale(language);
+    }
+
+    public void logout() {
+        SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+        SharedPreferences.Editor editor = preferences.edit();
+        editor.clear(); // Clear all preferences
+        editor.apply();
+
+        Intent intent = new Intent(Login.this, Login.class);
+        startActivity(intent);
+        finish();
     }
 }

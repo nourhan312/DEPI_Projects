@@ -56,8 +56,12 @@
     <string name="sign_up_successful">Sign-up successful</string>
     <string name="email_already_exists">Email already exists</string>
     <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
-    <string name="enter_a_valid_email">Enter a valid email</string>
+    <string name="enter_valid_email">Enter a valid email</string>
     <string name="username_is_required">Username is required</string>
+    <string name="invalid_credentials">Invalid credentials</string>
+    <string name="login_successful">Login successful</string>
+    <string name="password_is_required">password is required</string>
+
 
     <string-array name="languages">
         <item>English</item>
