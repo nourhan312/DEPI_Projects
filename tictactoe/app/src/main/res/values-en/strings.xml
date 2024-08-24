@@ -42,22 +42,6 @@
     <string name="con2">Continue</string>
     <string name="congratulations">Congratulations!</string>
     <string name="player_name">Player Name</string>
-    <string name="computer">Computer</string>
-    <string name="click">Click</string>
-    <string name="music">Music</string>
-    <string name="choose_language">Choose Language</string>
-    <string name="player_name_cannot_be_empty">Player name cannot be empty</string>
-    <string name="comp">Computer</string>
-    <string name="wins">" Wins!"</string>
-    <string name="computer_wins">Computer Wins!</string>
-    <string name="player_wins">Player Wins!</string>
-    <string name="player_one_name_cannot_be_empty">Player One name cannot be empty</string>
-    <string name="player_two_name_cannot_be_empty">Player Two name cannot be empty</string>
-    <string name="sign_up_successful">Sign-up successful</string>
-    <string name="email_already_exists">Email already exists</string>
-    <string name="password_must_be_at_least_6_characters">Password must be at least 6 characters</string>
-    <string name="enter_a_valid_email">Enter a valid email</string>
-    <string name="username_is_required">Username is required</string>
 
     <string-array name="languages">
         <item>English</item>

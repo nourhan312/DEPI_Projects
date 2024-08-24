@@ -157,7 +157,7 @@
         android:layout_gravity="center"
         android:padding="2dp"
         android:gravity="center"
-        android:text="continue"
+        android:text="@string/con"
         android:textAllCaps="false"
         android:textSize="21sp"
         android:fontFamily="@font/poppins_medium"

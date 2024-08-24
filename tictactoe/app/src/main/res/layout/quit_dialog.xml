@@ -60,7 +60,7 @@
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="3"
-                        android:text="Quit"
+                        android:text="@string/quit"
                         android:textSize="18dp"
                         android:fontFamily="@font/poppins_regular"
                         android:textStyle="bold"

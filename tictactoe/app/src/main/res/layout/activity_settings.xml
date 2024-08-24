@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -8,18 +8,16 @@
     android:weightSum="10"
     android:background="@color/background_color">
 
-
+    <!-- Header with back icon -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="120dp"
-
-
         android:orientation="horizontal">
+
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5" />
-
 
         <ImageView
             android:id="@+id/settings_back_icon"
@@ -40,7 +38,7 @@
         android:layout_height="0dp"
         android:layout_weight="1.1" />
 
-
+    <!-- App Icon -->
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="0dp"
@@ -48,13 +46,12 @@
         android:layout_gravity="center"
         android:src="@drawable/splash_src" />
 
-
+    <!-- App Title -->
     <TextView
         android:layout_width="wrap_content"
-        android:autoSizeMinTextSize="22dp"
         android:layout_height="0dp"
         android:layout_weight="1.05"
-        android:text="Tic Tac Toe"
+        android:text="@string/tic_tac_toe"
         android:layout_gravity="center"
         android:gravity="center"
         android:textStyle="bold"
@@ -67,19 +64,18 @@
         android:layout_height="0dp"
         android:layout_weight="0.5" />
 
+    <!-- Vibration Setting -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.85"
-
         android:weightSum="10"
         android:orientation="horizontal">
 
         <View
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_weight="0.5"
-            tools:ignore="NestedWeights" />
+            android:layout_weight="0.5" />
 
         <ImageView
             android:layout_width="0dp"
@@ -96,7 +92,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Click"
+            android:text="@string/click"
             android:layout_weight="3"
             android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
@@ -112,12 +108,11 @@
         <Switch
             android:id="@+id/click_switch"
             android:layout_width="0dp"
-            android:height="100dp"
             android:layout_weight="1.5"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:checked="true"
-            android:layout_height="wrap_content"
             android:textOff="@string/off"
             android:textOn="@string/on"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -126,8 +121,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5" />
-
-
     </LinearLayout>
 
     <View
@@ -138,8 +131,7 @@
         android:background="#777777"
         android:layout_weight="0.015" />
 
-
-
+    <!-- Music Setting -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -167,7 +159,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:text="Music"
+            android:text="@string/music"
             android:layout_weight="3"
             android:fontFamily="@font/poppins_regular"
             android:layout_gravity="center"
@@ -184,11 +176,10 @@
             android:id="@+id/music_switch"
             android:layout_width="0dp"
             android:layout_weight="1.5"
-            android:height="100dp"
+            android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="center"
             android:checked="true"
-            android:layout_height="wrap_content"
             android:textOff="@string/off"
             android:textOn="@string/on"
             tools:ignore="UseSwitchCompatOrMaterialXml" />
@@ -197,8 +188,6 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="0.5" />
-
-
     </LinearLayout>
 
     <View
@@ -209,80 +198,8 @@
         android:background="#777777"
         android:layout_weight="0.015" />
 
-
-
+    <!-- Language Selection -->
     <LinearLayout
-        android:id="@+id/rate_us_layout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_weight="0.95"
-        android:weightSum="10"
-        android:orientation="horizontal">
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.5" />
-
-        <ImageView
-            android:layout_width="0dp"
-            android:padding="6dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:src="@drawable/ic_rating" />
-
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="0.25" />
-
-        <TextView
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:text="Choose Lauguage"
-            android:layout_weight="3"
-            android:fontFamily="@font/poppins_regular"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-            android:textColor="@color/white"
-            android:textSize="20sp" />
-        <View
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="2.25" />
-
-        <Spinner
-            android:id="@+id/language_spinner"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="3"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
-
-            android:spinnerMode="dropdown"
-            android:backgroundTint="@color/white"
-            android:textColor="@color/white" />
-
-
-
-
-
-
-
-    </LinearLayout>
-
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="#777777"
-        android:layout_weight="0.025" />
-
-
-    <LinearLayout
-        android:id="@+id/feedback_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="0.85"
@@ -295,11 +212,11 @@
             android:layout_weight="0.5" />
 
         <ImageView
-            android:layout_width="0dp"
-            android:padding="8dp"
+            android:layout_width="100dp"
+            android:padding="6dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
-            android:src="@drawable/feedback" />
+            android:src="@drawable/multi" />
 
         <View
             android:layout_width="0dp"
@@ -307,43 +224,118 @@
             android:layout_weight="0.25" />
 
         <TextView
-            android:layout_width="0dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/feedback"
-            android:layout_weight="3"
+            android:layout_marginLeft="16dp"
+            android:layout_marginTop="16dp"
+            android:text="@string/choose_language"
             android:fontFamily="@font/poppins_regular"
-            android:layout_gravity="center"
-            android:gravity="center_vertical"
             android:textColor="@color/white"
             android:textSize="20sp" />
-
-        <View
-            android:layout_width="0dp"
-            android:textOn="ON"
-            android:layout_height="match_parent"
-            android:layout_weight="5.25" />
-
-
-
-
     </LinearLayout>
 
-    <View
+    <!-- Language Buttons with ImageView -->
+    <LinearLayout
+        android:id="@+id/language_layout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_marginRight="5dp"
-        android:layout_marginLeft="5dp"
-        android:background="#777777"
-        android:layout_weight="0.015" />
+        android:layout_weight="2.5"
+        android:orientation="vertical"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_english"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/en" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_arabic"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/eg" />
 
 
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+            </LinearLayout>
 
-        android:layout_weight="0.65" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_german"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/german" />
 
 
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_weight="1"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_french"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/fr" />
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <ImageView
+                    android:id="@+id/img_spanish"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="center"
+                    android:src="@drawable/sp" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
 
 
 

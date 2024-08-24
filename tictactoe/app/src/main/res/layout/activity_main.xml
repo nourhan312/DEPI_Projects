@@ -63,7 +63,7 @@
 
         android:background="@drawable/app_main_theme_background"
         android:fontFamily="@font/poppins_medium"
-        android:text="Logout"
+        android:text="@string/logout"
         android:elevation="10dp"
         android:textColor="@color/cardview_light_background"
         android:textSize="18sp" />

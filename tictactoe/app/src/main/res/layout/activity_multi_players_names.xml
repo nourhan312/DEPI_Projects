@@ -70,7 +70,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
 
-            android:text="Player One Name " />
+            android:text="@string/player_one_name" />
 
         <View
             android:layout_width="match_parent"
@@ -85,7 +85,7 @@
             android:maxLines="1"
             android:maxLength="10"
             android:backgroundTint="@color/teal_200"
-            android:hint="Enter Your Nick Name"
+            android:hint="@string/enter_your_nick_name"
             android:singleLine="true"
             android:textColor="@color/white"
             android:textColorHint="#6E6E6E"
@@ -112,7 +112,7 @@
             android:textStyle="bold"
             android:textColor="@color/white"
 
-            android:text="Player Two Name " />
+            android:text="@string/player_two_name" />
 
         <View
             android:layout_width="match_parent"
@@ -127,7 +127,7 @@
             android:maxLines="1"
             android:maxLength="10"
             android:backgroundTint="@color/teal_200"
-            android:hint="Enter Your Nick Name"
+            android:hint="@string/enter_your_nick_name"
             android:singleLine="true"
             android:textColor="@color/white"
             android:textColorHint="#6E6E6E"
@@ -161,7 +161,7 @@
         android:gravity="center"
         android:background="@drawable/button_1"
         android:fontFamily="@font/poppins_medium"
-        android:text="Next"
+        android:text="@string/next"
         android:layout_marginRight="95dp"
         android:layout_marginLeft="95dp"
         android:textAllCaps="false"

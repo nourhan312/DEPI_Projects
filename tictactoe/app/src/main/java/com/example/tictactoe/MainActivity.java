@@ -2,11 +2,14 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.content.res.Configuration;
 import android.os.Bundle;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
+
+import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -17,12 +20,14 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+       // Load saved language preference
 
         // Enable edge-to-edge layout
         EdgeToEdge.enable(this);
 
         // Set the content view to the main activity layout
         setContentView(R.layout.activity_main);
+
 
          preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
@@ -82,4 +87,7 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
         });
     }
+
+
+
 }

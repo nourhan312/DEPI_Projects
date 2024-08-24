@@ -39,13 +39,14 @@ public class MultiPlayerNames extends AppCompatActivity {
             String player2 = PlayerTwo.getText().toString().trim();
 
             if (TextUtils.isEmpty(player1)) {
-                PlayerOne.setError("Player One name cannot be empty");
+                PlayerOne.setError(getString(R.string.player_one_name_cannot_be_empty)
+                );
                 PlayerOne.requestFocus();
                 return;
             }
 
             if (TextUtils.isEmpty(player2)) {
-                PlayerTwo.setError("Player Two name cannot be empty");
+                PlayerTwo.setError(getString(R.string.player_two_name_cannot_be_empty));
                 PlayerTwo.requestFocus();
                 return;
             }

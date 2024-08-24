@@ -46,27 +46,27 @@ public class signup extends AppCompatActivity {
                 String password = editTextPassword.getText().toString().trim();
 
                 if (username.isEmpty()) {
-                    editTextUserName.setError("Username is required");
+                    editTextUserName.setError(getString(R.string.username_is_required));
                     return;
                 }
 
                 if (email.isEmpty() || !Patterns.EMAIL_ADDRESS.matcher(email).matches()) {
-                    editTextEmailAddress.setError("Enter a valid email");
+                    editTextEmailAddress.setError(getString(R.string.enter_a_valid_email));
                     return;
                 }
 
                 if (password.isEmpty() || password.length() < 6) {
-                    editTextPassword.setError("Password must be at least 6 characters");
+                    editTextPassword.setError(getString(R.string.password_must_be_at_least_6_characters));
                     return;
                 }
 
                 if (dbHelper.userExists(email)) {
-                    editTextEmailAddress.setError("Email already exists");
+                    editTextEmailAddress.setError(getString(R.string.email_already_exists));
                     return;
                 }
 
                 dbHelper.addUser(username, email, password);
-                Toast.makeText(signup.this, "Sign-up successful", Toast.LENGTH_SHORT).show();
+                Toast.makeText(signup.this, R.string.sign_up_successful, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(signup.this, MainActivity.class);
                 startActivity(intent);

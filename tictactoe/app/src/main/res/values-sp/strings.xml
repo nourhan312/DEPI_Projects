@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">Tic Tac Toe</string>
+    <string name="play_with_friends">Jugar con amigos</string>
+    <string name="start_game">Comenzar el juego</string>
+    <string name="pick_your_side">Elige tu lado</string>
+
+    <string name="x_symbol">Símbolo X</string>
+    <string name="choose_game">Elegir juego</string>
+    <string name="single_player_icon">Ícono de un jugador</string>
+    <string name="multiplayer_icon">Ícono multijugador</string>
+    <string name="multiplayer">MULTIJUGADOR</string>
+    <string name="seeting_icon">Ícono de configuración</string>
+    <string name="setting">CONFIGURACIÓN</string>
+    <string name="tic_tac_toe">Tic Tac Toe</string>
+    <string name="sound">Sonido</string>
+    <string name="vibration">Vibración</string>
+    <string name="off">APAGADO</string>
+    <string name="on">ENCENDIDO</string>
+    <string name="feedback">Comentarios</string>
+    <string name="are_you_want_to_quit">¿Quieres salir?</string>
+    <string name="cancel">Cancelar</string>
+
+    <string name="welcome_back">Bienvenido de nuevo</string>
+    <string name="enter_your_email">Introduce tu correo electrónico</string>
+    <string name="enter_your_password">Introduce tu contraseña</string>
+    <string name="login">Iniciar sesión</string>
+    <string name="don_t_have_an_account_sign_up">¿No tienes una cuenta? ¡Regístrate!</string>
+    <string name="logout">Cerrar sesión</string>
+    <string name="single_player">JUGADOR ÚNICO</string>
+    <string name="player_one_name">Nombre del jugador uno</string>
+    <string name="enter_your_nick_name">Introduce tu apodo</string>
+    <string name="player_two_name">Nombre del jugador dos</string>
+    <string name="next">Siguiente</string>
+    <string name="clear">Borrar</string>
+    <string name="create_an_account">Crear una cuenta</string>
+    <string name="enter_your_username">Introduce tu nombre de usuario</string>
+    <string name="sign_up">Regístrate</string>
+    <string name="already_have_an_account_login">¿Ya tienes una cuenta? ¡Inicia sesión!</string>
+    <string name="match_draw">¡Empate!</string>
+    <string name="quit">Salir</string>
+    <string name="con">Continuar</string>
+    <string name="con2">Continuar</string>
+    <string name="congratulations">¡Felicidades!</string>
+    <string name="player_name">Nombre del jugador</string>
+
+    <string-array name="languages">
+        <item>Inglés</item>
+        <item>Árabe</item>
+        <item>Alemán</item>
+        <item>Francés</item>
+        <item>Español</item>
+    </string-array>
+</resources>

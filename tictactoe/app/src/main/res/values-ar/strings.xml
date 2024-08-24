@@ -1,0 +1,53 @@
+<resources>
+    <string name="app_name">تيك تاك تو</string>
+    <string name="play_with_friends">العب مع الأصدقاء</string>
+    <string name="start_game">ابدأ اللعبة</string>
+    <string name="pick_your_side">اختر جانبك </string>
+
+    <string name="x_symbol">رمز X</string>
+    <string name="choose_game">اختر اللعبة</string>
+    <string name="single_player_icon">رمز لاعب واحد</string>
+    <string name="multiplayer_icon">رمز متعدد اللاعبين</string>
+    <string name="multiplayer">متعدد اللاعبين</string>
+    <string name="seeting_icon">رمز الإعدادات</string>
+    <string name="setting">الإعدادات</string>
+    <string name="tic_tac_toe">تيك تاك تو</string>
+    <string name="sound">الصوت</string>
+    <string name="vibration">الاهتزاز</string>
+    <string name="off">إيقاف</string>
+    <string name="on">تشغيل</string>
+    <string name="feedback">ملاحظات</string>
+    <string name="are_you_want_to_quit">هل تريد الخروج؟</string>
+    <string name="cancel">إلغاء</string>
+
+    <string name="welcome_back">مرحبًا بعودتك</string>
+    <string name="enter_your_email">أدخل بريدك الإلكتروني</string>
+    <string name="enter_your_password">أدخل كلمة المرور الخاصة بك</string>
+    <string name="login">تسجيل الدخول</string>
+    <string name="don_t_have_an_account_sign_up">لا تملك حسابًا؟ اشترك الآن!</string>
+    <string name="logout">تسجيل الخروج</string>
+    <string name="single_player">لاعب واحد</string>
+    <string name="player_one_name">اسم اللاعب الأول</string>
+    <string name="enter_your_nick_name">أدخل اسمك المستعار</string>
+    <string name="player_two_name">اسم اللاعب الثاني</string>
+    <string name="next">التالي</string>
+    <string name="clear">مسح</string>
+    <string name="create_an_account">إنشاء حساب</string>
+    <string name="enter_your_username">أدخل اسم المستخدم</string>
+    <string name="sign_up">اشترك</string>
+    <string name="already_have_an_account_login">لديك حساب؟ سجل الدخول!</string>
+    <string name="match_draw">المباراة تعادل!</string>
+    <string name="quit">خروج</string>
+    <string name="con">استمرار</string>
+    <string name="con2">استمرار</string>
+    <string name="congratulations">تهانينا!</string>
+    <string name="player_name">اسم اللاعب</string>
+
+    <string-array name="languages">
+        <item>الإنجليزية</item>
+        <item>العربية</item>
+        <item>الألمانية</item>
+        <item>الفرنسية</item>
+        <item>الإسبانية</item>
+    </string-array>
+</resources>

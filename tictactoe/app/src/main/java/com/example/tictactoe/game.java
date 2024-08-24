@@ -113,7 +113,7 @@ public class game extends AppCompatActivity {
             playerTurn = false;
 
             if (checkWinCondition(1)) {
-                Toast.makeText(this, "Player Wins!", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.player_wins, Toast.LENGTH_SHORT).show();
                 return;
             }
 
@@ -131,7 +131,7 @@ public class game extends AppCompatActivity {
                 playerTurn = true;
 
                 if (checkWinCondition(2)) {
-                    Toast.makeText(this, "Computer Wins!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(this, R.string.computer_wins, Toast.LENGTH_SHORT).show();
                 }
                 return;
             }
@@ -155,7 +155,7 @@ public class game extends AppCompatActivity {
                 } else if (player == 2) {
                     computerScore++;
                     computerPoints.setText(String.valueOf(computerScore));
-                    showWinDialog("Computer");
+                    showWinDialog(getString(R.string.computer));
                 }
                 return true;
             }
@@ -234,7 +234,7 @@ public class game extends AppCompatActivity {
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
 
-        winMessage.setText(    winner + " Wins!");
+        winMessage.setText(    winner + getString(R.string.wins));
 
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();

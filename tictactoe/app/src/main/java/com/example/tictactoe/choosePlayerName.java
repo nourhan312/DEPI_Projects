@@ -2,6 +2,7 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.widget.EditText;
 import android.widget.ImageView;
 
@@ -39,6 +40,13 @@ public class choosePlayerName extends AppCompatActivity {
             soundManager.playClickSound();
             // Get Player Name
             String playerName = playerNameEditText.getText().toString().trim();
+
+
+            if (TextUtils.isEmpty(playerName)) {
+                playerNameEditText.setError(getString(R.string.player_name_cannot_be_empty));
+                playerNameEditText.requestFocus();
+                return;
+            }
 
             // Intent to Start singlePlayer Activity
             Intent intent = new Intent(choosePlayerName.this, singlePlayer.class);
