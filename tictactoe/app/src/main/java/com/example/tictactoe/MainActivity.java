@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private AppCompatButton startGameButton , logoutBtn;
     private SoundManager soundManager;
      private SharedPreferences preferences;
+     private TextView welcomeMessageTextView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
 
          preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
+        String userName = preferences.getString("userName", "");
 
 
         if (!isLoggedIn) {
@@ -40,10 +43,10 @@ public class MainActivity extends AppCompatActivity {
             finish();
             return;
         }
-
+        welcomeMessageTextView = findViewById(R.id.WelcometextView);
         logoutBtn = findViewById(R.id.logout_button);
         logoutBtn.setOnClickListener( v->{
-
+               soundManager.playClickSound();
 
                 // Clear login state
                  preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
@@ -57,6 +60,9 @@ public class MainActivity extends AppCompatActivity {
                 finish();
 
         });
+
+
+        welcomeMessageTextView.setText("Welcome , " + userName);
 
         // Initialize the SoundManager instance
         soundManager = new SoundManager(this);

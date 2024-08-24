@@ -1,6 +1,7 @@
 package com.example.tictactoe;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
@@ -21,9 +22,13 @@ public class signup extends AppCompatActivity {
    private SoundManager soundManager;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_singup);
         EdgeToEdge.enable(this);
+
+
         editTextUserName = findViewById(R.id.editTextUserName);
         editTextEmailAddress = findViewById(R.id.editTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextPassword);
@@ -75,6 +80,12 @@ public class signup extends AppCompatActivity {
                 }
 
                 dbHelper.addUser(username, email, password);
+                SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+                SharedPreferences.Editor editor = preferences.edit();
+                //editor.putBoolean("isLoggedIn", true);
+                editor.putString("userEmail", email); // Save email
+                editor.putString("userName", username); // Save username
+                editor.apply();
                 Toast.makeText(signup.this, R.string.sign_up_successful, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(signup.this, MainActivity.class);

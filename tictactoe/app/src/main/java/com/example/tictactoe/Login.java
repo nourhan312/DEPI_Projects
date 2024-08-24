@@ -74,9 +74,15 @@ public class Login extends AppCompatActivity {
 
             if (dbHelper.checkUser(email, password)) {
                 // Save login state
+
+
+
+
+
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("isLoggedIn", true);
                 editor.putString("userEmail", email); // Save email if needed
+                editor.putString("userName", dbHelper.getUserName(email)); // Save username
                 editor.apply();
 
                 Toast.makeText(Login.this, R.string.login_successful, Toast.LENGTH_SHORT).show();
