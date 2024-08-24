@@ -2,7 +2,9 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -117,7 +119,15 @@ public class MultiPlayerGame extends AppCompatActivity {
 
         AppCompatButton quitButton = view.findViewById(R.id.quit_btn);
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
+        // Set the background of the dialog window to be transparent
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
+            // Optionally, adjust the size of the dialog window
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.quit_dialog, null);
+        dialog.setContentView(dialogView);
         quitButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerGame.this, menu.class);
@@ -233,7 +243,15 @@ public class MultiPlayerGame extends AppCompatActivity {
         TextView winMessage = view.findViewById(R.id.win_message_details);
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
+        // Set the background of the dialog window to be transparent
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
+            // Optionally, adjust the size of the dialog window
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.win_dialog, null);
+        dialog.setContentView(dialogView);
         winMessage.setText( winner + " Wins!");
 
         continueButton.setOnClickListener(v -> {
@@ -262,7 +280,15 @@ public class MultiPlayerGame extends AppCompatActivity {
 
         AppCompatButton continueButton = view.findViewById(R.id.offline_game_draw_continue_btn);
         AppCompatButton quitButton = view.findViewById(R.id.offline_game_draw_quit_btn);
+        // Set the background of the dialog window to be transparent
+        if (dialog.getWindow() != null) {
+            dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
+            // Optionally, adjust the size of the dialog window
+            dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
+        }
+        View dialogView = LayoutInflater.from(this).inflate(R.layout.draw_dialog, null);
+        dialog.setContentView(dialogView);
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             dialog.dismiss();
