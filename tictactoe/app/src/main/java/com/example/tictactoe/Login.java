@@ -31,6 +31,7 @@ public class Login extends AppCompatActivity {
         EdgeToEdge.enable(this);
 
         // Initialize views
+
         editTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         loginBtn = findViewById(R.id.ai_player_name_btn);
