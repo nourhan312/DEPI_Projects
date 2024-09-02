@@ -25,7 +25,7 @@ public class user {
         this.photoPath = photoPath;
     }
 
-    // Getters and setters for photoPath
+
     public String getPhotoPath() {
         return photoPath;
     }

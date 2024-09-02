@@ -26,7 +26,7 @@ public class edit_contact extends AppCompatActivity {
     private Button saveButton, uploadButton, deleteButton;
     private DatabaseHelper dbHelper;
     private user contact;
-    private Uri selectedImageUri; // To store the selected image URI
+    private Uri selectedImageUri;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,17 +43,17 @@ public class edit_contact extends AppCompatActivity {
 
         dbHelper = new DatabaseHelper(this);
 
-        // Get contact details from the intent
+
         Intent intent = getIntent();
         int contactId = intent.getIntExtra("CONTACT_ID", -1);
 
-        // Fetch contact from database
+
         contact = dbHelper.getUserById(contactId);
         if (contact != null) {
             nameEditText.setText(contact.getName());
             phoneEditText.setText(contact.getNumber());
 
-            // Display existing photo if available
+
             if (contact.getPhotoPath() != null && !contact.getPhotoPath().isEmpty()) {
                 contactImageView.setImageURI(Uri.parse(contact.getPhotoPath()));
             }
@@ -76,12 +76,12 @@ public class edit_contact extends AppCompatActivity {
 
         contact.setName(updatedName);
         contact.setNumber(updatedPhone);
-        contact.setPhotoPath(photoPath); // Set the photo path
+        contact.setPhotoPath(photoPath);
 
-        dbHelper.updateUser(contact); // Update with photo path
+        dbHelper.updateUser(contact);
 
         Toast.makeText(this, "Contact updated successfully", Toast.LENGTH_SHORT).show();
-        setResult(RESULT_OK); // Notify that result is OK
+        setResult(RESULT_OK);
         finish();
     }
 
@@ -90,7 +90,7 @@ public class edit_contact extends AppCompatActivity {
         if (contact != null) {
             dbHelper.deleteUser(contact.getId());
             Toast.makeText(this, "Contact deleted successfully", Toast.LENGTH_SHORT).show();
-            setResult(RESULT_OK); // Notify that result is OK
+            setResult(RESULT_OK);
             finish();
         }
     }
@@ -104,7 +104,7 @@ public class edit_contact extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null && data.getData() != null) {
-            selectedImageUri = data.getData(); // Store the URI
+            selectedImageUri = data.getData();
             try {
                 Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), selectedImageUri);
                 contactImageView.setImageBitmap(bitmap);

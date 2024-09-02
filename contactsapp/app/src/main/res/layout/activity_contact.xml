@@ -12,7 +12,6 @@
 
 
 
-    <!-- CardView to hold contact details with rounded corners -->
     <androidx.cardview.widget.CardView
         android:id="@+id/contact_card"
         android:layout_width="0dp"
@@ -29,13 +28,13 @@
         app:layout_constraintEnd_toEndOf="parent"
         tools:ignore="MissingConstraints">
 
-        <!-- Inner ConstraintLayout for organizing contact details -->
+
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:padding="16dp">
 
-            <!-- ImageView for the contact image -->
+
             <de.hdodenhof.circleimageview.CircleImageView
                 android:id="@+id/photoImageView"
                 android:layout_width="60dp"
@@ -47,7 +46,7 @@
                 app:layout_constraintTop_toTopOf="parent"
                 app:layout_constraintBottom_toBottomOf="parent" />
 
-            <!-- TextView for Name -->
+
             <TextView
                 android:id="@+id/name"
                 android:layout_width="0dp"
@@ -61,7 +60,7 @@
                 app:layout_constraintTop_toTopOf="@id/photoImageView"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- TextView for Number -->
+
             <TextView
                 android:id="@+id/number"
                 android:layout_width="0dp"
@@ -74,7 +73,7 @@
                 app:layout_constraintTop_toBottomOf="@id/name"
                 app:layout_constraintEnd_toEndOf="parent" />
 
-            <!-- ImageView acting as Button -->
+
             <ImageView
                 android:id="@+id/editButton"
                 android:layout_width="30dp"

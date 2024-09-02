@@ -12,16 +12,12 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.core.graphics.Insets;
-import androidx.core.view.ViewCompat;
-import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
-
     private DatabaseHelper dbHelper;
     private ArrayList<user> userList;
     private ListView listView;
@@ -45,37 +41,38 @@ public class MainActivity extends AppCompatActivity {
         Custom_Adapter myCustomAdapter = new Custom_Adapter(this, userList, R.layout.activity_contact);
         listView.setAdapter(myCustomAdapter);
 
-        // Handle Search Icon Click
+        /// search
+
         searchIcon.setOnClickListener(v -> {
             if (!isSearchVisible) {
-                // Show search input
+
                 searchInput.setVisibility(View.VISIBLE);
-                searchInput.requestFocus();  // Ensure keyboard shows up
+                searchInput.requestFocus();
                 isSearchVisible = true;
             } else {
-                // Hide search input
+
                 searchInput.setVisibility(View.GONE);
                 isSearchVisible = false;
-                showAllContacts();  // Show all contacts when hiding search input
+                showAllContacts();
             }
         });
 
-        // Add a TextWatcher to searchInput for real-time search
+
         searchInput.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-                // No action needed here
+
             }
 
             @Override
             public void onTextChanged(CharSequence s, int start, int before, int count) {
-                // Perform search as user types
+
                 filterContacts(s.toString());
             }
 
             @Override
             public void afterTextChanged(Editable s) {
-                // No action needed here
+
             }
         });
 

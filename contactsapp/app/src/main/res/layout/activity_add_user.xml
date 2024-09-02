@@ -6,7 +6,7 @@
     android:background="@color/background_color"
     tools:context=".add_user">
 
-    <!-- Toolbar with title and search icon -->
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbarAdd"
         android:layout_width="0dp"
@@ -30,7 +30,7 @@
         app:layout_constraintTop_toBottomOf="@id/toolbarAdd"
         app:layout_constraintWidth_percent="0.85">
 
-        <!-- Circular ImageView -->
+
         <de.hdodenhof.circleimageview.CircleImageView
             android:id="@+id/profile_image"
             android:layout_width="100dp"

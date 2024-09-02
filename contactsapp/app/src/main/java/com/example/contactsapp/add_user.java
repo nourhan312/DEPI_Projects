@@ -35,10 +35,11 @@ public class add_user extends AppCompatActivity {
         btn = findViewById(R.id.add_button);
         photoImageView = findViewById(R.id.profile_image);
 
-        // Initialize database helper
+
         my_db = new DatabaseHelper(this);
 
-        // Button to select photo
+        // select photo
+
         Button selectPhotoButton = findViewById(R.id.Add_upload_button);
         selectPhotoButton.setOnClickListener(v -> {
             Intent galleryIntent = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
@@ -54,7 +55,8 @@ public class add_user extends AppCompatActivity {
                 return;
             }
 
-            // Insert user into database
+            // insert user into database
+
             boolean success = my_db.insertUser(new user(userName, userPhone, photoPath));
 
             if (success) {

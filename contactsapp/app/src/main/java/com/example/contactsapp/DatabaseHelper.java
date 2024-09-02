@@ -17,7 +17,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     private static final String COLUMN_PHONE = "phone";
     private static final String COLUMN_PHOTO_PATH = "photo_path";
 
-    // SQL Create Table
+
     private static final String TABLE_CREATE =
             "CREATE TABLE " + TABLE_USERS + " (" +
                     COLUMN_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
@@ -75,8 +75,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                         userList.add(new user(id, name, number, photoPath));
                     } while (cursor.moveToNext());
                 } else {
-                    // Handle the error case where columns are not found
-                    throw new RuntimeException("One or more columns not found in cursor");
+
+                    throw new RuntimeException(" columns not found in cursor");
                 }
             }
         } catch (Exception e) {
@@ -108,8 +108,8 @@ public class DatabaseHelper extends SQLiteOpenHelper {
                     String photoPath = cursor.getString(photoPathIndex);
                     user = new user(id, name, number, photoPath);
                 } else {
-                    // Handle the error case where columns are not found
-                    throw new RuntimeException("One or more columns not found in cursor");
+
+                    throw new RuntimeException(" columns not found in cursor");
                 }
             }
         } catch (Exception e) {
@@ -134,7 +134,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         db.close();
 
         if (rowsAffected == 0) {
-            throw new RuntimeException("Failed to update user. No rows affected.");
+            throw new RuntimeException("Failed to update user.");
         }
     }
 

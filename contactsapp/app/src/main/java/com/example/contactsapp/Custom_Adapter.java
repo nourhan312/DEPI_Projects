@@ -50,32 +50,33 @@ public class Custom_Adapter extends BaseAdapter {
         TextView name_text = v.findViewById(R.id.name);
         TextView number_text = v.findViewById(R.id.number);
         ImageView img_btn = v.findViewById(R.id.imageButton);
-        ImageView edit_btn = v.findViewById(R.id.editButton);  // Add reference to the edit button
-        CircleImageView photoImageView = v.findViewById(R.id.photoImageView); // Add reference to the photo ImageView
+        ImageView edit_btn = v.findViewById(R.id.editButton);
+        CircleImageView photoImageView = v.findViewById(R.id.photoImageView);
 
-        // Set contact details
+
+
         name_text.setText(list.get(i).getName());
         number_text.setText(list.get(i).getNumber());
-
-        // Load photo if available
         String photoPath = list.get(i).getPhotoPath();
+
+
         if (photoPath != null) {
             photoImageView.setImageURI(Uri.parse(photoPath));
         } else {
-            photoImageView.setImageResource(R.drawable.image);  // Default photo if no photo
+            photoImageView.setImageResource(R.drawable.image);
         }
 
-        // Set click listener for the call button
+
         img_btn.setOnClickListener(view1 -> {
             Intent callIntent = new Intent(Intent.ACTION_DIAL);
             callIntent.setData(Uri.parse("tel:" + list.get(i).getNumber()));
             context.startActivity(callIntent);
         });
 
-        // Set click listener for the edit button
+
         edit_btn.setOnClickListener(view1 -> {
             Intent editIntent = new Intent(context, edit_contact.class);
-            editIntent.putExtra("CONTACT_ID", list.get(i).getId());  // Pass the contact ID
+            editIntent.putExtra("CONTACT_ID", list.get(i).getId());
             context.startActivity(editIntent);
         });
 
