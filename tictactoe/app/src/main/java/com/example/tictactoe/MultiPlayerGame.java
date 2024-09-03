@@ -39,6 +39,7 @@ public class MultiPlayerGame extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_multi_player_game);
         EdgeToEdge.enable(this);
+
         // Initialize the grid cells
         cells[0] = findViewById(R.id.img_1);
         cells[1] = findViewById(R.id.img_2);
@@ -53,25 +54,29 @@ public class MultiPlayerGame extends AppCompatActivity {
         clearButton = findViewById(R.id.clear_button);
         backbtn = findViewById(R.id.game_back_icon);
 
-        // Retrieve the data from Intent
+
         String playerOneName = getIntent().getStringExtra("PLAYER1_NAME");
         String playerTwoName = getIntent().getStringExtra("PLAYER2_NAME");
         String playerOneSymbolString = getIntent().getStringExtra("PLAYER1_SYMBOL");
 
-        // Initialize Views
+
 
         soundManager = new SoundManager(this);
+
+        // player 1
         playeroneNameTextView = findViewById(R.id.FplayerName);
         player1Points = findViewById(R.id.FPlayerScore);
         player1SymbolView = findViewById(R.id.FplayerSymbol);
         PlayerOneCard = findViewById(R.id.playerOneCard);
 
+           // player 2
 
         playertwoNameTextView = findViewById(R.id.SplayerName);
         player2Points = findViewById(R.id.SPlayerScore);
         player2SymbolView = findViewById(R.id.SplayerSymbol);
         PlayerTwoCard = findViewById(R.id.playerTwoCard);
-        // Set player's symbol based on the passed string ("X" or "O")
+
+
         if (playerOneSymbolString.equals("X")) {
             playerOneSymbol = R.drawable.xsymbol;
             playerTwoSymbol = R.drawable.o;
@@ -80,13 +85,13 @@ public class MultiPlayerGame extends AppCompatActivity {
             playerTwoSymbol = R.drawable.xsymbol;
         }
 
-        // Display the Player's Name and Symbol
+
         playeroneNameTextView.setText(playerOneName);
         playertwoNameTextView.setText(playerTwoName);
         player1SymbolView.setImageResource(playerOneSymbol);
         player2SymbolView.setImageResource(playerTwoSymbol);
 
-        // Set up click listeners for each cell
+
         for (int i = 0; i < cells.length; i++) {
             final int index = i;
             cells[i].setOnClickListener(v -> {
@@ -104,7 +109,7 @@ public class MultiPlayerGame extends AppCompatActivity {
             BackPressed();
         });
 
-        updateTurnIndicator(); // Highlight the current player's turn
+        updateTurnIndicator();
     }
     public void BackPressed() {
         showQuitDialog();
@@ -120,20 +125,21 @@ public class MultiPlayerGame extends AppCompatActivity {
 
         AppCompatButton quitButton = view.findViewById(R.id.quit_btn);
         AppCompatButton continueButton = view.findViewById(R.id.continue_btn);
-        // Set the background of the dialog window to be transparent
+
+
         if (dialog.getWindow() != null) {
             dialog.getWindow().setBackgroundDrawableResource(android.R.color.transparent);
 
-            // Optionally, adjust the size of the dialog window
             dialog.getWindow().setLayout(WindowManager.LayoutParams.MATCH_PARENT, WindowManager.LayoutParams.WRAP_CONTENT);
         }
+
         View dialogView = LayoutInflater.from(this).inflate(R.layout.quit_dialog, null);
         dialog.setContentView(dialogView);
         quitButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerGame.this, menu.class);
             startActivity(intent);
-            finish(); // Or call any method to exit the application
+            finish();
         });
 
         continueButton.setOnClickListener(v -> {
@@ -144,8 +150,9 @@ public class MultiPlayerGame extends AppCompatActivity {
         dialog.show();
     }
     private void onCellClicked(int index) {
+
         if (board[index] != 0) {
-            return; // Cell already occupied
+            return;   // Cell already occupied
         }
 
         if (playerTurn) {

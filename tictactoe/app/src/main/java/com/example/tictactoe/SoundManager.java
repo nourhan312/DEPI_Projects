@@ -56,7 +56,8 @@ public class SoundManager {
         isSoundEnabled = false;
         if (backgroundMusicPlayer != null && backgroundMusicPlayer.isPlaying()) {
             backgroundMusicPlayer.pause();
-            backgroundMusicPlayer.seekTo(0);  // Restart music from the beginning when re-enabled
+            backgroundMusicPlayer.seekTo(0);
+            // Restart music from the beginning when re enabled
         }
     }
 
@@ -82,15 +83,16 @@ public class SoundManager {
         return isClickSoundEnabled;
     }
 
-    public void release() {
-        if (backgroundMusicPlayer != null) {
-            backgroundMusicPlayer.release();
-            backgroundMusicPlayer = null;
-        }
+//    public void release() {
+//        if (backgroundMusicPlayer != null) {
+//            backgroundMusicPlayer.release();
+//            backgroundMusicPlayer = null;
+//        }
+//
+//        if (soundPool != null) {
+//            soundPool.release();
+//            soundPool = null;
+//        }
+//    }
 
-        if (soundPool != null) {
-            soundPool.release();
-            soundPool = null;
-        }
-    }
 }

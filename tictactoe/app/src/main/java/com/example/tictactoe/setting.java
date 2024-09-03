@@ -33,8 +33,9 @@ public class setting extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_settings);
          EdgeToEdge.enable(this);
-        soundManager = new SoundManager(this);
 
+
+        soundManager = new SoundManager(this);
         sharedPreferences = getSharedPreferences(PREFS_NAME, MODE_PRIVATE);
 
         // language
@@ -119,6 +120,7 @@ public class setting extends AppCompatActivity {
             }
         });
     }
+    // edit on shared preferences
 
     private void savePreference(String key, boolean value) {
         SharedPreferences.Editor editor = sharedPreferences.edit();

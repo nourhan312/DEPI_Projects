@@ -318,18 +318,18 @@
                 android:layout_width="0dp"
                 android:layout_weight="3.1"
                 android:padding="15dp"
-                android:layout_height="match_parent"
-                ></ImageView>
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.15"></View>
+                android:layout_weight="0.15" />
         </LinearLayout>
+
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.15"></View>
+            android:layout_weight="0.15" />
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="0dp"
@@ -338,24 +338,23 @@
             android:weightSum="10">
 
 
-
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.15"></View>
+                android:layout_weight="0.15" />
+
             <ImageView
                 android:tag="7"
                 android:id="@+id/img_7"
                 android:layout_width="0dp"
                 android:layout_weight="3.1"
                 android:padding="15dp"
-                android:layout_height="match_parent"
-                ></ImageView>
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.15"></View>
+                android:layout_weight="0.15" />
 
             <ImageView
                 android:tag="8"
@@ -363,14 +362,14 @@
                 android:layout_width="0dp"
                 android:layout_weight="3.1"
                 android:padding="15dp"
-                android:layout_height="match_parent"
-                ></ImageView>
+                android:layout_height="match_parent" />
 
 
             <View
+
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.15"></View>
+                android:layout_weight="0.15" />
 
             <ImageView
                 android:tag="9"
@@ -378,20 +377,19 @@
                 android:layout_width="0dp"
                 android:layout_weight="3.1"
                 android:padding="15dp"
-                android:layout_height="match_parent"
-                ></ImageView>
+                android:layout_height="match_parent" />
 
             <View
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
-                android:layout_weight="0.15"></View>
+                android:layout_weight="0.15" />
         </LinearLayout>
 
 
         <View
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_weight="0.5"></View>
+            android:layout_weight="0.5" />
 
     </LinearLayout>
 

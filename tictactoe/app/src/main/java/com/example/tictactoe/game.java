@@ -2,8 +2,6 @@ package com.example.tictactoe;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.ImageView;
@@ -51,7 +49,13 @@ public class game extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_singleuser_game);
 
-        // Initialize the grid cells
+
+
+        String playerName = getIntent().getStringExtra("PLAYER_NAME");
+        String playerSymbolString = getIntent().getStringExtra("PLAYER_SYMBOL");
+
+
+
         cells[0] = findViewById(R.id.img_1);
         cells[1] = findViewById(R.id.img_2);
         cells[2] = findViewById(R.id.img_3);
@@ -66,11 +70,8 @@ public class game extends AppCompatActivity {
         clearButton = findViewById(R.id.clear_button);
         backbtn = findViewById(R.id.game_back_icon);
 
-        // Retrieve the data from Intent
-        String playerName = getIntent().getStringExtra("PLAYER_NAME");
-        String playerSymbolString = getIntent().getStringExtra("PLAYER_SYMBOL");
-
         // Initialize Views
+
         playerNameTextView = findViewById(R.id.playerName);
         playerSymbolView = findViewById(R.id.playerSymbol);
         ComputerSymbolView = findViewById(R.id.computerSymbol);
@@ -80,6 +81,7 @@ public class game extends AppCompatActivity {
         ComputerCard = findViewById(R.id.comuterCard);
 
         // Set player's symbol based on the passed string ("X" or "O")
+
         if (playerSymbolString.equals("X")) {
             playerSymbol = R.drawable.xsymbol;
             computerSymbol = R.drawable.o;
@@ -88,12 +90,12 @@ public class game extends AppCompatActivity {
             computerSymbol = R.drawable.xsymbol;
         }
 
-        // Display the Player's Name and Symbol
+
         playerNameTextView.setText(playerName);
         playerSymbolView.setImageResource(playerSymbol);
         ComputerSymbolView.setImageResource(computerSymbol);
 
-        // Set up click listeners for each cell
+
         for (int i = 0; i < cells.length; i++) {
             final int index = i;
             cells[i].setOnClickListener(v -> {
@@ -117,6 +119,7 @@ public class game extends AppCompatActivity {
 
     private void computerMove() {
       //  ComputerCard.setBackground(ContextCompat.getDrawable(this, R.drawable.redcard_border));
+
         List<Integer> availableCells = new ArrayList<>();
         for (int i = 0; i < board.length; i++) {
             if (board[i] == 0) {
@@ -130,6 +133,7 @@ public class game extends AppCompatActivity {
             cells[move].setImageResource(computerSymbol);
 
             if (checkWinCondition(2)) {
+
                 Toast.makeText(this, R.string.computer_wins, Toast.LENGTH_SHORT).show();
             }
             playerTurn = true;
@@ -148,23 +152,23 @@ public class game extends AppCompatActivity {
 
     private void onCellClicked(int index) {
         if (dialogShowing || board[index] != 0) {
-            return; // Do nothing if a dialog is showing or the cell is occupied
+            return;
         }
 
         if (playerTurn) {
             board[index] = 1;
-            cells[index].setImageResource(playerSymbol); // Use the player's chosen symbol
+            cells[index].setImageResource(playerSymbol);
             if (checkWinCondition(1)) {
                 return; // Exit early if the player wins
             }
             if (isDraw()) {
                 showDrawDialog();
-                return; // Exit early if it's a draw
+                return;
             }
             playerTurn = false;
             computerMove();
         }
-        updateTurnIndicator(); // Update after the move
+        updateTurnIndicator();
     }
 
     private boolean checkWinCondition(int player) {
@@ -206,7 +210,7 @@ public class game extends AppCompatActivity {
         computerScore = 0;
         playerPoints.setText(String.valueOf(playerScore));
         computerPoints.setText(String.valueOf(computerScore));
-        clearBoard(); // Optionally clear the board as well
+        clearBoard();
     }
 
     public void BackPressed() {
@@ -296,7 +300,7 @@ public class game extends AppCompatActivity {
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             dialog.dismiss();
-            clearBoard(); // Clear the board when continuing
+            clearBoard();
         });
 
         quitButton.setOnClickListener(v -> {
@@ -307,7 +311,8 @@ public class game extends AppCompatActivity {
             finish(); // Quit the game
         });
 
-        dialog.setOnDismissListener(dialogInterface -> dialogShowing = false); // Reset flag when dialog is dismissed
+        dialog.setOnDismissListener(dialogInterface -> dialogShowing = false);
+
         dialog.show();
     }
 

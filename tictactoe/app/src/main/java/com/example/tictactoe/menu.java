@@ -24,7 +24,6 @@ public class menu extends AppCompatActivity {
         setContentView(R.layout.activity_menu);
 
 
-        // Initialize SoundManager
          soundManager = new SoundManager(this);
 
 

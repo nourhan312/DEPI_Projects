@@ -22,23 +22,22 @@ public class choosePlayerName extends AppCompatActivity {
         EdgeToEdge.enable(this);
         setContentView(R.layout.activity_single_player_name);
 
-        // initialize Views
         soundManager = new SoundManager(this);
         backbtn = findViewById(R.id.choose_player_back_icon);
         Nextbtn = findViewById(R.id.ai_player_name_btn);
         playerNameEditText = findViewById(R.id.ai_player_name_edttxt);
 
-        // Back Button
+
         backbtn.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(choosePlayerName.this, menu.class);
             startActivity(intent);
         });
 
-        // Next Button
+
         Nextbtn.setOnClickListener(v -> {
             soundManager.playClickSound();
-            // Get Player Name
+
             String playerName = playerNameEditText.getText().toString().trim();
 
 
@@ -48,7 +47,7 @@ public class choosePlayerName extends AppCompatActivity {
                 return;
             }
 
-            // Intent to Start singlePlayer Activity
+
             Intent intent = new Intent(choosePlayerName.this, singlePlayer.class);
             intent.putExtra("PLAYER_NAME", playerName);
             startActivity(intent);

@@ -38,9 +38,10 @@ public class MultiPlayerSymbol extends AppCompatActivity {
 
         String player = getIntent().getStringExtra("PLAYERONE_NAME");
         // Set Player Name
-        String text = player + getString(R.string.pick_your_side);
+        String text = player + " " + getString(R.string.pick_your_side);
+
         playerName.setText(text);
-        // Handle Symbol Selection
+
         xSymbol.setOnClickListener(v -> {
             soundManager.playClickSound();
             selectXSymbol();
@@ -49,14 +50,15 @@ public class MultiPlayerSymbol extends AppCompatActivity {
             soundManager.playClickSound();
             selectOSymbol();
         });
-        // Continue Button
+
         continueButton.setOnClickListener(v -> {
             soundManager.playClickSound();
-            // Get Player Name from Intent
+
+
             String playerOneName = getIntent().getStringExtra("PLAYERONE_NAME");
             String playerTwoName = getIntent().getStringExtra("PLAYERTWO_NAME");
 
-            // Create Intent to Start game Activity
+
             Intent intent = new Intent(MultiPlayerSymbol.this, MultiPlayerGame.class);
             intent.putExtra("PLAYER1_NAME", playerOneName);
             intent.putExtra("PLAYER2_NAME", playerTwoName);
@@ -64,7 +66,7 @@ public class MultiPlayerSymbol extends AppCompatActivity {
             startActivity(intent);
         });
 
-        // Back Button
+
         backButton.setOnClickListener(v -> {
             soundManager.playClickSound();
             Intent intent = new Intent(MultiPlayerSymbol.this, menu.class);

@@ -27,6 +27,7 @@ public class MultiPlayerNames extends AppCompatActivity {
         EdgeToEdge.enable(this);
 
         soundManager = new SoundManager(this);
+
         PlayerOne = findViewById(R.id.player1_name_edttxt);
         PlayerTwo = findViewById(R.id.player2_name_edttxt);
 

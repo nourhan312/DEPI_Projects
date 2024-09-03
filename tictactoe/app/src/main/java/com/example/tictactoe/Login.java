@@ -30,27 +30,26 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         EdgeToEdge.enable(this);
 
-        // Initialize views
+
 
         editTextEmailAddress = findViewById(R.id.editTextTextEmailAddress);
         editTextPassword = findViewById(R.id.editTextTextPassword);
         loginBtn = findViewById(R.id.ai_player_name_btn);
         register_redirect = findViewById(R.id.signupPage);
 
-        // Initialize SoundManager and DatabaseHelper
         soundManager = new SoundManager(this);
         dbHelper = new DatabaseHelper(this);
 
-        // Check if the user is already logged in
+
         SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
         boolean isLoggedIn = preferences.getBoolean("isLoggedIn", false);
 
         if (isLoggedIn) {
-            // If user is logged in, navigate to the main activity
+
             Intent intent = new Intent(Login.this, MainActivity.class);
             startActivity(intent);
             finish();
-            return; // Skip the rest of the onCreate code
+            return;
         }
 
         register_redirect.setOnClickListener(view -> {
@@ -75,16 +74,12 @@ public class Login extends AppCompatActivity {
             }
 
             if (dbHelper.checkUser(email, password)) {
-                // Save login state
-
-
-
 
 
                 SharedPreferences.Editor editor = preferences.edit();
                 editor.putBoolean("isLoggedIn", true);
-                editor.putString("userEmail", email); // Save email if needed
-                editor.putString("userName", dbHelper.getUserName(email)); // Save username
+                editor.putString("userEmail", email);
+                editor.putString("userName", dbHelper.getUserName(email));
                 editor.apply();
 
                 Toast.makeText(Login.this, R.string.login_successful, Toast.LENGTH_SHORT).show();
@@ -103,24 +98,24 @@ public class Login extends AppCompatActivity {
         Locale locale = new Locale(lang);
         Locale.setDefault(locale);
         Configuration config = new Configuration();
-        config.setLocale(locale); // Use setLocale method for better compatibility
+        config.setLocale(locale);
         getResources().updateConfiguration(config, getResources().getDisplayMetrics());
     }
 
     public void loadLocale() {
         SharedPreferences prefs = getSharedPreferences("Settings", MODE_PRIVATE);
-        String language = prefs.getString("My_Lang", ""); // Default to empty string if not set
+        String language = prefs.getString("My_Lang", "");
         setLocale(language);
     }
 
-    public void logout() {
-        SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
-        SharedPreferences.Editor editor = preferences.edit();
-        editor.clear(); // Clear all preferences
-        editor.apply();
-
-        Intent intent = new Intent(Login.this, Login.class);
-        startActivity(intent);
-        finish();
-    }
+//    public void logout() {
+//        SharedPreferences preferences = getSharedPreferences("UserPrefs", MODE_PRIVATE);
+//        SharedPreferences.Editor editor = preferences.edit();
+//        editor.clear(); // Clear all preferences
+//        editor.apply();
+//
+//        Intent intent = new Intent(Login.this, Login.class);
+//        startActivity(intent);
+//        finish();
+//    }
 }

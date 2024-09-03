@@ -78,7 +78,6 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         return null;
     }
 
-
     public boolean userExists(String email) {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "SELECT * FROM " + TABLE_USERS + " WHERE " + COLUMN_EMAIL + "=?";

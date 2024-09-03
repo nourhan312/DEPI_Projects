@@ -61,7 +61,7 @@
             android:background="@drawable/edittext_border"
             android:hint="@string/enter_your_password"
             android:textColorHint="@color/white"
-            android:inputType="text"
+            android:inputType="textPassword"
             android:padding="16dp"
             android:textAlignment="viewStart"
             android:textColor="@color/text_color"
