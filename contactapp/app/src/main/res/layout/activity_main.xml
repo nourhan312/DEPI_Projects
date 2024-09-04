@@ -1,0 +1,117 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/background_color"
+    tools:context=".MainActivity">
+
+    <!-- Toolbar -->
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbarMain"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:background="#d483a3"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <!-- Title Text (My Contacts) -->
+        <TextView
+            android:id="@+id/toolbar_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="My Contacts"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:textSize="23sp"
+            android:layout_gravity="center"/>
+
+        <!-- Search Input in Toolbar -->
+        <EditText
+            android:id="@+id/search_input"
+            android:layout_width="300dp"
+            android:layout_height="wrap_content"
+            android:hint="Search contacts"
+            android:padding="16dp"
+            android:textColor="@color/white"
+            android:textColorHint="@color/white"
+            android:visibility="gone"
+
+            android:inputType="text"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginStart="50dp"
+            android:layout_marginEnd="50dp" />
+
+        <!-- Search Icon -->
+        <ImageView
+            android:id="@+id/search_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_search"
+            android:contentDescription="Search"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:focusable="true" />
+
+        <!-- Clear Button -->
+        <ImageView
+            android:id="@+id/clear_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_clear"
+            android:contentDescription="Clear Search"
+            android:visibility="gone"
+            android:layout_marginEnd="16dp"
+            android:layout_gravity="end"
+            android:clickable="true"
+            android:focusable="true" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <!-- No Contacts Image -->
+    <ImageView
+        android:id="@+id/no_contacts_image"
+        android:layout_width="300dp"
+        android:layout_height="300dp"
+        android:layout_margin="16dp"
+        android:src="@drawable/no_contacts"
+        android:contentDescription="No Contacts"
+        android:visibility="gone"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/floatingActionButton" />
+
+    <!-- ListView for displaying contacts -->
+
+    <!-- Floating Action Button -->
+    <ListView
+        android:id="@+id/main_lw"
+        android:layout_width="427dp"
+        android:layout_height="572dp"
+
+        app:layout_constraintBottom_toTopOf="@id/floatingActionButton"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/toolbarMain"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/floatingActionButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+
+        android:layout_marginEnd="36dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#d483a3"
+        android:contentDescription="Add Contact"
+        android:src="@android:drawable/ic_input_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
